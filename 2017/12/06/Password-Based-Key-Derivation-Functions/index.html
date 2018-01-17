@@ -1,0 +1,27 @@
+<div class="intro-header"></div>
+<div class="uk-grid uk-padding-remove" uk-grid>
+  <div class="uk-width-1-1">
+  
+<div id="language" class=" uk-card uk-card-default uk-box-shadow-small uk-border-rounded uk-card-body uk-padding-small uk-margin-remove" style="display: block; background-color: #efefef;">
+  <ul id="accordion-passwordbasedkeyderivationfunctions-codeblock-1" class="uk-list">
+    <li class="uk-open">
+      <span class="uk-h6 uk-text-small uk-padding-remove-vertical uk-text-capitalize">
+        <span class="uk-align-right">
+          <span class="uk-icon-link" title="Copy To Clipboard" uk-tooltip=""><a onclick="copyElementInnerTextToClipboard('passwordbasedkeyderivationfunctions-codeblock-1');" uk-icon="icon: copy; ratio: 1"></a></span>
+          <span class="uk-icon-link" title="Download" uk-tooltip=""><a onclick="window.open('https://cryptoswift.io/assets/snippets/examples/key-derivation/1.swift');" uk-icon="icon: download; ratio: 1"></a></span>
+        </span>
+      </span>
+      <div id="passwordbasedkeyderivationfunctions-codeblock-1" class="uk-accordion-content uk-margin-remove-bottom uk-margin-small-top uk-padding-remove-vertical">
+        
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">let</span> <span class="nv">password</span><span class="p">:</span> <span class="kt">Array</span><span class="o">&lt;</span><span class="kt">UInt8</span><span class="o">&gt;</span> <span class="o">=</span> <span class="nf">Array</span><span class="p">(</span><span class="s">"s33krit"</span><span class="o">.</span><span class="n">utf8</span><span class="p">)</span>
+<span class="k">let</span> <span class="nv">salt</span><span class="p">:</span> <span class="kt">Array</span><span class="o">&lt;</span><span class="kt">UInt8</span><span class="o">&gt;</span> <span class="o">=</span> <span class="nf">Array</span><span class="p">(</span><span class="s">"nacllcan"</span><span class="o">.</span><span class="n">utf8</span><span class="p">)</span>
+
+<span class="k">try</span> <span class="kt">PKCS5</span><span class="o">.</span><span class="nf">PBKDF2</span><span class="p">(</span><span class="nv">password</span><span class="p">:</span> <span class="n">password</span><span class="p">,</span> <span class="nv">salt</span><span class="p">:</span> <span class="n">salt</span><span class="p">,</span> <span class="nv">iterations</span><span class="p">:</span> <span class="mi">4096</span><span class="p">,</span> <span class="nv">variant</span><span class="p">:</span> <span class="o">.</span><span class="n">sha256</span><span class="p">)</span><span class="o">.</span><span class="nf">calculate</span><span class="p">()</span></code></pre></figure>
+
+      </div>
+    </li>
+  </ul>
+</div>
+
+  </div>
+</div>

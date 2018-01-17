@@ -1,0 +1,106 @@
+<div class="intro-header"></div>
+<div class="uk-grid uk-padding-remove" uk-grid>
+  <div class="uk-width-1-1">
+  <p>For your convenience CryptoSwift provides two functions to easily convert array of bytes to Data and another way around:</p>
+<h5 id="data-from-bytes">Data from bytes:</h5>
+
+<div id="language" class=" uk-card uk-card-default uk-box-shadow-small uk-border-rounded uk-card-body uk-padding-small uk-margin-remove" style="display: block; background-color: #efefef;">
+  <ul id="accordion-datatypesconversion-codeblock-1" class="uk-list">
+    <li class="uk-open">
+      <span class="uk-h6 uk-text-small uk-padding-remove-vertical uk-text-capitalize">
+        <span class="uk-align-right">
+          <span class="uk-icon-link" title="Copy To Clipboard" uk-tooltip=""><a onclick="copyElementInnerTextToClipboard('datatypesconversion-codeblock-1');" uk-icon="icon: copy; ratio: 1"></a></span>
+          <span class="uk-icon-link" title="Download" uk-tooltip=""><a onclick="window.open('https://cryptoswift.io/assets/snippets/examples/data-types-conversion/1.swift');" uk-icon="icon: download; ratio: 1"></a></span>
+        </span>
+      </span>
+      <div id="datatypesconversion-codeblock-1" class="uk-accordion-content uk-margin-remove-bottom uk-margin-small-top uk-padding-remove-vertical">
+        
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">let</span> <span class="nv">data</span> <span class="o">=</span> <span class="nf">Data</span><span class="p">(</span><span class="nv">bytes</span><span class="p">:</span> <span class="p">[</span><span class="mh">0x01</span><span class="p">,</span> <span class="mh">0x02</span><span class="p">,</span> <span class="mh">0x03</span><span class="p">])</span></code></pre></figure>
+
+      </div>
+    </li>
+  </ul>
+</div>
+<h5 id="data-to-array">Data to Array<UInt8></UInt8></h5>
+
+<div id="language" class=" uk-card uk-card-default uk-box-shadow-small uk-border-rounded uk-card-body uk-padding-small uk-margin-remove" style="display: block; background-color: #efefef;">
+  <ul id="accordion-datatypesconversion-codeblock-2" class="uk-list">
+    <li class="uk-open">
+      <span class="uk-h6 uk-text-small uk-padding-remove-vertical uk-text-capitalize">
+        <span class="uk-align-right">
+          <span class="uk-icon-link" title="Copy To Clipboard" uk-tooltip=""><a onclick="copyElementInnerTextToClipboard('datatypesconversion-codeblock-2');" uk-icon="icon: copy; ratio: 1"></a></span>
+          <span class="uk-icon-link" title="Download" uk-tooltip=""><a onclick="window.open('https://cryptoswift.io/assets/snippets/examples/data-types-conversion/2.swift');" uk-icon="icon: download; ratio: 1"></a></span>
+        </span>
+      </span>
+      <div id="datatypesconversion-codeblock-2" class="uk-accordion-content uk-margin-remove-bottom uk-margin-small-top uk-padding-remove-vertical">
+        
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">let</span> <span class="nv">bytes</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">bytes</span>                     <span class="c1">// [1,2,3]</span></code></pre></figure>
+
+      </div>
+    </li>
+  </ul>
+</div>
+<h5 id="hexadecimal-encoding">Hexadecimal encoding:</h5>
+
+<div id="language" class=" uk-card uk-card-default uk-box-shadow-small uk-border-rounded uk-card-body uk-padding-small uk-margin-remove" style="display: block; background-color: #efefef;">
+  <ul id="accordion-datatypesconversion-codeblock-3" class="uk-list">
+    <li class="uk-open">
+      <span class="uk-h6 uk-text-small uk-padding-remove-vertical uk-text-capitalize">
+        <span class="uk-align-right">
+          <span class="uk-icon-link" title="Copy To Clipboard" uk-tooltip=""><a onclick="copyElementInnerTextToClipboard('datatypesconversion-codeblock-3');" uk-icon="icon: copy; ratio: 1"></a></span>
+          <span class="uk-icon-link" title="Download" uk-tooltip=""><a onclick="window.open('https://cryptoswift.io/assets/snippets/examples/data-types-conversion/3.swift');" uk-icon="icon: download; ratio: 1"></a></span>
+        </span>
+      </span>
+      <div id="datatypesconversion-codeblock-3" class="uk-accordion-content uk-margin-remove-bottom uk-margin-small-top uk-padding-remove-vertical">
+        
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">let</span> <span class="nv">bytes</span> <span class="o">=</span> <span class="kt">Array</span><span class="o">&lt;</span><span class="kt">UInt8</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">hex</span><span class="p">:</span> <span class="s">"0x010203"</span><span class="p">)</span>  <span class="c1">// [1,2,3]</span>
+<span class="k">let</span> <span class="nv">hex</span>   <span class="o">=</span> <span class="n">bytes</span><span class="o">.</span><span class="nf">toHexString</span><span class="p">()</span>            <span class="c1">// "010203"</span></code></pre></figure>
+
+      </div>
+    </li>
+  </ul>
+</div>
+<h5 id="build-bytes-out-of-string">Build bytes out of String</h5>
+
+<div id="language" class=" uk-card uk-card-default uk-box-shadow-small uk-border-rounded uk-card-body uk-padding-small uk-margin-remove" style="display: block; background-color: #efefef;">
+  <ul id="accordion-datatypesconversion-codeblock-4" class="uk-list">
+    <li class="uk-open">
+      <span class="uk-h6 uk-text-small uk-padding-remove-vertical uk-text-capitalize">
+        <span class="uk-align-right">
+          <span class="uk-icon-link" title="Copy To Clipboard" uk-tooltip=""><a onclick="copyElementInnerTextToClipboard('datatypesconversion-codeblock-4');" uk-icon="icon: copy; ratio: 1"></a></span>
+          <span class="uk-icon-link" title="Download" uk-tooltip=""><a onclick="window.open('https://cryptoswift.io/assets/snippets/examples/data-types-conversion/4.swift');" uk-icon="icon: download; ratio: 1"></a></span>
+        </span>
+      </span>
+      <div id="datatypesconversion-codeblock-4" class="uk-accordion-content uk-margin-remove-bottom uk-margin-small-top uk-padding-remove-vertical">
+        
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">let</span> <span class="nv">bytes</span><span class="p">:</span> <span class="kt">Array</span><span class="o">&lt;</span><span class="kt">UInt8</span><span class="o">&gt;</span> <span class="o">=</span> <span class="s">"password"</span><span class="o">.</span><span class="n">bytes</span>  <span class="c1">// Array("password".utf8)</span></code></pre></figure>
+
+      </div>
+    </li>
+  </ul>
+</div>
+<h5 id="base64-encoded-data">Base64 encoded data</h5>
+<p>Also… check out helpers that work with Base64 encoded data:</p>
+
+<div id="language" class=" uk-card uk-card-default uk-box-shadow-small uk-border-rounded uk-card-body uk-padding-small uk-margin-remove" style="display: block; background-color: #efefef;">
+  <ul id="accordion-datatypesconversion-codeblock-5" class="uk-list">
+    <li class="uk-open">
+      <span class="uk-h6 uk-text-small uk-padding-remove-vertical uk-text-capitalize">
+        <span class="uk-align-right">
+          <span class="uk-icon-link" title="Copy To Clipboard" uk-tooltip=""><a onclick="copyElementInnerTextToClipboard('datatypesconversion-codeblock-5');" uk-icon="icon: copy; ratio: 1"></a></span>
+          <span class="uk-icon-link" title="Download" uk-tooltip=""><a onclick="window.open('https://cryptoswift.io/assets/snippets/examples/data-types-conversion/5.swift');" uk-icon="icon: download; ratio: 1"></a></span>
+        </span>
+      </span>
+      <div id="datatypesconversion-codeblock-5" class="uk-accordion-content uk-margin-remove-bottom uk-margin-small-top uk-padding-remove-vertical">
+        
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="s">"aPf/i9th9iX+vf49eR7PYk2q7S5xmm3jkRLejgzHNJs="</span><span class="o">.</span><span class="nf">decryptBase64ToString</span><span class="p">(</span><span class="n">cipher</span><span class="p">)</span>
+<span class="s">"aPf/i9th9iX+vf49eR7PYk2q7S5xmm3jkRLejgzHNJs="</span><span class="o">.</span><span class="nf">decryptBase64</span><span class="p">(</span><span class="n">cipher</span><span class="p">)</span>
+<span class="n">bytes</span><span class="o">.</span><span class="nf">toBase64</span><span class="p">()</span></code></pre></figure>
+
+      </div>
+    </li>
+  </ul>
+</div>
+
+  </div>
+</div>

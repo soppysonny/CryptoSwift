@@ -1,0 +1,2 @@
+let input: Array<UInt8> = [0,1,2,3,4,5,6,7,8,9]
+let encrypted: Array<UInt8> = try! AES(key: Array("secret0key000000".utf8), blockMode: .CBC(iv: Array("0123456789012345".utf8)), padding: .noPadding).encrypt(input)

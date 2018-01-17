@@ -1,0 +1,1579 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0">
+<!-- Temporary disable cache while many changes to content are being made  -->
+  <title>CryptoSwift</title>
+
+  <meta name="author" content="" /><meta name="description" content="Cryptographic Algorithms Implemented in <a href='http://swift.org' target='_blank'>Swift</a>">
+  <link rel="alternate" type="application/rss+xml" title="CryptoSwift - " href="/feed.xml" />
+<!-- Load all scripts: css, js, and fonts -->
+  <link rel="stylesheet" href="/assets/css/normalize.css" />
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <link rel="stylesheet" href="/assets/css/pygment_highlights.css" />
+  <link rel="stylesheet" href="/assets/css/mod.css" />
+  <link rel="stylesheet" href="/assets/css/fonts.css" />
+  <script src="/assets/js/jquery-3.2.1.min.js"></script>
+  <script src="/assets/js/uikit.min.js"></script>
+  <script src="/assets/js/uikit-icons.min.js"></script>
+  <script src="/assets/js/vivus.min.js"></script>
+
+<!-- Facebook OpenGraph tags -->
+  <meta property="og:title" content="CryptoSwift" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="CryptoSwift"/>
+  <meta property="og:url" content="https://cryptoswift.io/" />
+  <meta property="og:image" content="" />
+<!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@" />
+  <meta name="twitter:creator" content="@" />
+  <meta name="twitter:title" content="CryptoSwift" />
+  <meta name="twitter:description" content="Index Page" />
+<!-- MathJax -->
+<!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/assets/img/apple-touch-icon-57x57.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/img/apple-touch-icon-114x114.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/img/apple-touch-icon-72x72.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/img/apple-touch-icon-144x144.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="60x60" href="/assets/img/apple-touch-icon-60x60.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="/assets/img/apple-touch-icon-120x120.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="76x76" href="/assets/img/apple-touch-icon-76x76.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="152x152" href="/assets/img/apple-touch-icon-152x152.png" />
+  <link rel="icon" type="image/png" href="/assets/img/favicon-196x196.png" sizes="196x196" />
+  <link rel="icon" type="image/png" href="/assets/img/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/png" href="/assets/img/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="/assets/img/favicon-16x16.png" sizes="16x16" />
+  <link rel="icon" type="image/png" href="/assets/img/favicon-128.png" sizes="128x128" />
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.ico" />
+  <link rel="mask-icon" href="" color="#ffffff">
+  <meta name="application-name" content="Crypto Swift"/>
+  <meta name="msapplication-TileColor" content="#FFFFFF" />
+  <meta name="msapplication-TileImage" content="/assets/img/mstile-144x144.png" />
+  <meta name="msapplication-square70x70logo" content="/assets/img/mstile-70x70.png" />
+  <meta name="msapplication-square150x150logo" content="/assets/img/mstile-150x150.png" />
+  <meta name="msapplication-wide310x150logo" content="/assets/img/mstile-310x150.png" />
+  <meta name="msapplication-square310x310logo" content="/assets/img/mstile-310x310.png" />
+  <meta name="msapplication-notification" content="frequency=30;polling-uri=http://notifications.buildmypinnedsite.com/?feed=/feed.xml&amp;id=1;polling-uri2=http://notifications.buildmypinnedsite.com/?feed=/feed.xml&amp;id=2;polling-uri3=http://notifications.buildmypinnedsite.com/?feed=/feed.xml&amp;id=3;polling-uri4=http://notifications.buildmypinnedsite.com/?feed=/feed.xml&amp;id=4;polling-uri5=http://notifications.buildmypinnedsite.com/?feed=/feed.xml&amp;id=5;cycle=1" />
+<!-- Jekyll-seo-tags --><!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>CryptoSwift</title>
+<meta name="generator" content="Jekyll v3.7.0" />
+<meta property="og:title" content="CryptoSwift" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="https://cryptoswift.io/" />
+<meta property="og:url" content="https://cryptoswift.io/" />
+<meta property="og:site_name" content="CryptoSwift" />
+<script type="application/ld+json">
+{"name":"CryptoSwift","@type":"WebSite","url":"https://cryptoswift.io/","headline":"CryptoSwift","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+</head>
+  <body class="mod-base-body" onunload="">
+    <a id="top" style="visibility: hidden; position: absolute; top:0;">top</a>
+    <div class="uk-offcanvas-content">
+      <div class="mod-base-nav-prefix uk-visible@s"></div>
+      <div class="mod-base-nav-prefix-small uk-hidden@s"></div>
+<nav class="mod-nav-main uk-navbar-container" uk-sticky uk-navbar>
+  <div class="mod-nav-avatar uk-navbar-left uk-logo">
+    <a href="https://cryptoswift.io">
+      <img id="avatar1" class="mod-nav-avatar-img uk-visible@s" src="/assets/img/cryptoswift5.svg" width="64px" data-count="1" />
+      <img id="avatar1" class="mod-nav-avatar-img uk-hidden@s" src="/assets/img/cryptoswift5.svg" width="64px" data-count="1" />
+    <span id="active-avatar-logos" data-active-logos="" hidden></span>
+    </a>
+  </div>
+  <div class="uk-navbar-left" style="margin-left: -10px;">
+    <a class="uk-navbar-item uk-text-lowercase uk-link-muted" href="https://cryptoswift.io">
+      <span class="mod-nav-title-left uk-visible@s">Crypto</span>
+      <span class="mod-nav-title-left-small uk-hidden@s">Crypto</span>
+      <span class="mod-nav-title-right uk-visible@s">Swift</span>
+      <span class="mod-nav-title-right-small uk-hidden@s">Swift</span>
+    </a>
+  </div>
+  <div class="uk-navbar-right">
+    <div class="uk-navbar-item uk-margin-remove-right uk-visible@s">
+      <a class="uk-iconnav" href="#download-modal" uk-toggle title="Download this project" uk-tooltip><span class="mod-nav-button-download uk-button uk-button-danger uk-button-small uk-border-rounded"> Download</span></a>
+    </div>
+    <div class="uk-navbar-item uk-visible@s uk-padding-remove-left">
+      <a class="mod-nav-icon uk-iconnav" uk-icon="icon: donation; ratio: 1.2;" href="#donation-modal" uk-toggle title="Donate" uk-tooltip></a>
+    </div>
+    <div class="uk-navbar-item uk-visible@s uk-padding-remove-left">
+      <a class="mod-nav-icon uk-iconnav" uk-icon="icon: github; ratio: 1.2;" href="https://github.com/krzyzanowskim/CryptoSwift" uk-toggle title="Github Repository" uk-tooltip target="_blank"></a>
+    </div>
+    <div class="uk-navbar-item uk-padding-remove-left">
+      <span class="mod-nav-icon uk-iconnav" uk-icon="icon: menu; ratio: 1.2;" uk-toggle="target: #offcanvas-push; animation: uk-animation-slide-right" title="Menu" uk-tooltip></span>
+    </div>
+  </div>
+</nav><div class="mod-header-media uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s" uk-grid>
+  <div class="uk-flex-last@s uk-card-media-right uk-cover-container">
+    <div id="my-svg" class="cf-svg" width="100%" height="100%" viewBox="0 0 1300 1043" uk-cover></div>
+    <canvas width="1300" height="1043"></canvas>
+      <a class="mod-nav-icon mod-header-to-bottom uk-card uk-card-secondary uk-card-body uk-padding-small uk-border-rounded uk-float-right" href="#bottom" uk-icon="icon: chevron-down; ratio: 1.2;" uk-scroll title="To Bottom" uk-tooltip></a>
+  </div>
+  <div>
+    <div class="uk-card-body">
+      <div id="menubar" class="mod-header-card uk-card  uk-card-transparent uk-card-large uk-card-body uk-text-center uk-width-1-1">
+        <p class="mod-header-title-small uk-hidden@s uk-h1 uk-text-capitalize">CryptoSwift</p>
+        <p class="mod-header-title uk-visible@s uk-h1 uk-text-capitalize">CryptoSwift</p>
+        <p class="mod-header-subtitle-small uk-hidden@s">is a growing collection of standard and secure cryptographic algorithms implemented in Swift.</p>
+        <p class="mod-header-subtitle uk-visible@s">is a growing collection of standard and secure cryptographic algorithms implemented in Swift.</p> 
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  new Vivus('my-svg', {duration: 50, file: '/assets/img/header.svg', 
+    onReady: function (myVivus) {
+      myVivus.el.setAttribute('viewBox', '0 0 1300 1043');
+    }
+  });
+</script>
+      <div class="mod-base-content-section uk-container uk-container-expand uk-padding-remove uk-margin-remove">
+        <div>
+  <div>
+    
+<div class="mod-feature-highlight uk-section uk-section-secondary uk-section-large uk-card-body uk-card-small uk-margin-remove-bottom">
+  <div class="uk-container uk-text-center uk-container-large">
+    <h1 class="mod-feature-highlight-overview uk-margin-medium-top" style="letter-spacing: 1px;" >Comprehensive support for most cryptographic needs.</h1>
+    <div class="uk-text-left" >
+    </div>  
+    <div class="uk-grid uk-grid-margin uk-padding-small" uk-grid >
+      <div class="uk-width-1-5@s"><div class="uk-panel">
+  <a class="mod-feature-highlight-overview uk-text-bold" href="#license-modal" uk-toggle>
+    <img src="/assets/img/license.svg" width="144" height="144" alt="SWIFT">
+    <h2 class="mod-feature-overview-title uk-margin-remove-top">COPYRIGHT</h2>
+    <p>Opensource Terms and Conditions</p>
+  </a>
+</div>
+      </div>
+      <div class="uk-width-1-5@s"><div class="uk-panel">
+  <a class="mod-feature-highlight-overview uk-text-bold" href="http://swift.org" target="_blank">
+    <img src="/assets/img/swift.svg" width="144" height="144" alt="SWIFT">
+    <h2 class="mod-feature-overview-title uk-margin-remove-top">SWIFT</h2>
+    <p>Cryptography related functions and helpers implemented in Swift.</p>
+  </a>
+</div>
+      </div>
+      <div class="uk-width-1-5@s"><div class="uk-panel">
+  <a class="mod-feature-highlight-overview uk-text-bold" href="#algorithms" uk-scroll="offset: 100">
+    <img src="/assets/img/incremental.svg" width="144" height="144" alt="FEATURES">
+    <h2 class="mod-feature-overview-title uk-margin-remove-top">FEATURES</h2>
+    <p>Support for incremental updates (stream, ...)</p>
+  </a>
+</div>
+      </div>
+      <div class="uk-width-1-5@s"><div class="uk-panel">
+  <a class="mod-feature-highlight-overview uk-text-bold" href="#usage" uk-scroll="offset: 100">
+    <img src="/assets/img/easytouse.svg" width="144" height="144" alt="EASY">
+    <h2 class="mod-feature-overview-title uk-margin-remove-top">EASY</h2>
+    <p>API that is designed to be easy to use.</p>
+  </a>
+</div>
+      </div>
+      <div class="uk-width-1-5@s"><div class="uk-panel">
+  <a class="mod-feature-highlight-overview uk-text-bold" href="#getting-started" uk-scroll="offset: 100">
+    <img src="/assets/img/ossupported.svg" width="144" height="144" alt="">
+    <h2 class="mod-feature-overview-title uk-margin-remove-top">PLATFORMS</h2>
+    <p>iOS, macOS, AppleTV, watchOS, Linux support.</p>
+  </a>
+</div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="uk-card uk-card-body uk-text-center uk-margin-small uk-padding-small">
+  <h1 id="algorithms" class="uk-heading-hero" style="letter-spacing: 1px;" ><span>Algorithms</span></h1>
+</div>
+<div class="mod-feature-tab">
+  <div class="uk-text-left" >
+  </div>  
+  <div class="uk-container uk-container-expand uk-margin-small-top">
+    <div class="mod-feature-tab uk-card uk-card-default uk-card-body uk-card-small uk-margin-remove-bottom uk-border-rounded" uk-sticky="offset: 90; bottom: true">
+      <ul class="uk-iconnav uk-flex-center" uk-tab="connect: .mod-index-tabs; animation: uk-animation-fade;">
+        <li><a class="uk-text-bold" href="#">Hash</a></li>
+        <li><a class="uk-text-bold" href="#">CRC</a></li>
+        <li><a class="uk-text-bold" href="#">Ciphers</a></li>
+        <li><a class="uk-text-bold" href="#">Authenticators</a></li>
+        <li><a class="uk-text-bold" href="#">Cipher Block</a></li>
+        <li><a class="uk-text-bold" href="#">Key Derivation</a></li>
+        <li><a class="uk-text-bold" href="#">Data Padding</a></li>
+      </ul>
+    </div>
+    <div class="mod-feature-tab uk-card uk-card-default uk-card-body uk-card-small uk-margin-remove-bottom uk-border-rounded" >
+      <ul class="mod-index-tabs uk-switcher uk-margin uk-margin-remove-top">
+        <li><div class="uk-section uk-section-default uk-section-small">
+  <div class="uk-container uk-text-center uk-container-large">  
+    <h2 id="algorithms" class="uk-h1 uk-heading-large uk-margin-bottom-remove">Hash</h2>
+    <p class="uk-text-large uk-text-justify uk-padding-small">A cryptographic hash function is a mathematical algorithm which is designed to also be a one-way function, that is, a function which is infeasible to invert.</p>
+    <div class="uk-grid uk-grid-divider uk-grid-margin uk-padding-small" uk-grid>
+      <div class="uk-width-1-2@s uk-width-1-3@l uk-width-1-4@xl">
+        <div class="uk-panel">
+          <h2>MD5</h2>
+          <p class="uk-text-justify"><a href="https://tools.ietf.org/html/rfc1321" target="_blank">The MD5 algorithm</a> is intended for digital signature applications, where a large file must be "compressed" in a secure manner before being encrypted with a private (secret) key under a public-key cryptosystem such as RSA.</p>
+        </div>
+      </div>
+      <div class="uk-width-1-2@s uk-width-1-3@l uk-width-1-4@xl">
+        <div class="uk-panel">
+          <h2>SHA1</h2>
+          <p class="uk-text-justify">The <a href="https://tools.ietf.org/html/rfc3174" target="_blank">Secure Hash Algorithm 1</a> is called secure because it is computationally infeasible to find a message which corresponds to a given message digest, or to find two different messages which produce the same message digest.</p>
+        </div>
+      </div>
+      <div class="uk-width-1-2@s uk-width-1-3@l uk-width-1-4@xl">
+        <div class="uk-panel">
+          <h2>SHA224, SHA256, SHA384, SHA512</h2>
+          <p class="uk-text-justify">The <a href="https://tools.ietf.org/html/rfc6234" target="_blank">Secure Hash Algorithms; namely SHA-224, SHA-256, SHA-384, and SHA-512;</a> specified in this document are called secure because it is computationally infeasible to (1) find a message that corresponds to a given message digest, or (2) find two different messages that produce the same message digest.</p>
+        </div>
+      </div>
+      <div class="uk-width-1-2@s uk-width-1-3@l uk-width-1-4@xl">
+        <div class="uk-panel">
+          <h2>SHA3</h2>
+          <p class="uk-text-justify">The standard specifies the <a href="http://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.202.pdf" target="_blank">Secure Hash Algorithm-3</a> family of functions on binary data. Each of the SHA-3 functions is based on an instance of the KECCAK algorithm that NIST selected as the winner of the SHA-3 Cryptographic Hash Algorithm Competition.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div></li>
+        <li><div class="uk-section uk-section-default uk-section-small">
+  <div class="uk-container uk-text-center uk-container-large">
+    <h2 id="algorithms" class="uk-h1 uk-heading-large uk-margin-bottom-remove">Cyclic Redundancy Checks</h2>
+    <p class="uk-text-large uk-text-justify uk-padding-small">A cyclic redundancy check (CRC) is an error-detecting code commonly used in digital networks and storage devices to detect accidental changes to raw data</p>
+    <div class="uk-grid uk-grid-divider uk-grid-margin uk-padding-small" uk-grid>
+      <div class="uk-width-1-2@s">
+        <div class="uk-panel">
+          <h2>CRC32</h2>
+          <p class="uk-text-justify"><a href="https://en.wikipedia.org/wiki/Cyclic_redundancy_check#CRC-32_algorithm" target="_blank">The CRC32 algorithm</a> is a variant of CRC with 33 bits. The CRCTable is a memoization of a calculation that would have to be repeated for each byte of the message.</p>
+        </div>
+      </div>
+      <div class="uk-width-1-2@s">
+        <div class="uk-panel">
+          <h2>CSR16</h2>
+          <p class="uk-text-justify">The <a href="https://en.wikipedia.org/wiki/Cyclic_redundancy_check#Polynomial_representations_of_cyclic_redundancy_checks" target="_blank">CRC16 algorithm</a> has nineteen conflicting definitions for 17 bits CRC-16. </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div></li>
+        <li><div class="uk-section uk-section-default uk-section-small">
+  <div class="uk-container uk-text-center uk-container-large">
+    <h2 id="algorithms" class="uk-h1 uk-heading-large uk-margin-bottom-remove">Ciphers</h2>
+    <p class="uk-text-large uk-text-justify uk-padding-small">A cipher is an algorithm for performing encryption or decryption—a series of well-defined steps that can be followed as a procedure.</p>
+    <div class="uk-grid uk-grid-divider uk-grid-margin uk-padding-small" uk-grid>
+      <div class="uk-width-1-2@s uk-width-1-3@l uk-width-1-4@xl">
+        <div class="uk-panel">
+          <h2>AES-128, AES-192, AES0256</h2>
+          <p class="uk-text-justify"><a href="https://csrc.nist.gov/csrc/media/publications/fips/197/final/documents/fips-197.pdf" target="_blank">The Advanced Encryption Standard algorithm</a> specifies a FIPS-approved cryptographic algorithm that can be used to protect electronic data. The AES algorithm is a symmetric block cipher that can encrypt (encipher) and decrypt (decipher) information.</p>
+        </div>
+      </div>
+      <div class="uk-width-1-2@s uk-width-1-3@l uk-width-1-4@xl">
+        <div class="uk-panel">
+          <h2>ChaCha20</h2>
+          <p class="uk-text-justify">The <a href="http://cr.yp.to/chacha/chacha-20080128.pdf" target="_blank">ChaCha family</a> of stream ciphers, a variant of the Salsa20 family. The Salsa20/20 stream cipher expands a 256-bit key into 264 randomly accessible streams, each containing 264 randomly accessible 64-byte blocks.</p>
+        </div>
+      </div>
+      <div class="uk-width-1-2@s uk-width-1-3@l uk-width-1-4@xl">
+        <div class="uk-panel">
+          <h2>Rabbit</h2>
+          <p class="uk-text-justify">The <a href="https://tools.ietf.org/html/rfc4503" target="_blank">Rabbit Stream Cipher Algorithm</a> is a stream cipher algorithm with a 128-bit key and 64-bit initialization vector (IV). Its high performance makes it particularly suited for the use with Internet protocols where large amounts of data have to be processed.</p>
+        </div>
+      </div>
+      <div class="uk-width-1-2@s uk-width-1-3@l uk-width-1-4@xl">
+        <div class="uk-panel">
+          <h2>Blowfish</h2>
+          <p class="uk-text-justify">The <a href="https://www.schneier.com/academic/blowfish/" target="_blank">Blowfish Encryption Algorithm</a> is a symmetric block cipher that can be used as a drop-in replacement for DES or IDEA. It takes a variable-length key, from 32 bits to 448 bits, making it ideal for both domestic and exportable use. Blowfish was designed in 1993 by Bruce Schneier as a fast, free alternative to existing encryption algorithms.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>   </li>
+        <li><div class="uk-section uk-section-default uk-section-small">
+  <div class="uk-container uk-text-center uk-container-large">
+    <h2 id="algorithms" class="uk-h1 uk-heading-large uk-margin-bottom-remove">Message Authenticators</h2>
+    <p class="uk-text-large uk-text-justify uk-padding-small">A Message Authenticator is a way to check the integrity of information transmitted over or stored in an unreliable medium.</p>
+    <div class="uk-grid uk-grid-divider uk-grid-margin uk-padding-small" uk-grid>
+      <div class="uk-width-1-2@s">
+        <div class="uk-panel">
+          <h2>Poly1305</h2>
+          <p class="uk-text-justify">The <a href="http://cr.yp.to/mac/poly1305-20050329.pdf" target="_blank">Poly1305-AES algorithm</a> is very close to the security of AES and can be computed at extremely high speed.</p>
+        </div>
+      </div>
+      <div class="uk-width-1-2@s">
+        <div class="uk-panel">
+          <h2>HMAC MD5, SHA1, SHA256</h2>
+          <p class="uk-text-justify">The <a href="https://www.ietf.org/rfc/rfc2104.txt" target="_blank">HMAC: Keyed-Hashing for Message Authentication algorithm</a> provides a way to check the integrity of information transmitted over or stored in an unreliable medium is a prime necessity in the world of open computing and communications.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>  </li>
+        <li><div class="uk-section uk-section-default uk-section-small">
+  <div class="uk-container uk-text-center uk-container-large">
+    <h2 id="algorithms" class="uk-h1 uk-heading-large uk-margin-bottom-remove">Cipher Block Mode</h2>
+    <p class="uk-text-large uk-text-justify uk-padding-small">A block cipher mode of operation is an algorithm that uses a block cipher to provide an information service such as confidentiality or authenticity.</p>
+    <div class="uk-grid uk-grid-divider uk-grid-margin uk-padding-small" uk-grid>
+      <div class="uk-width-1-2@s uk-width-1-3@l uk-width-1-4@xl">
+        <div class="uk-panel">
+          <h2>Electronic codebook (ECB)</h2>
+          <p class="uk-text-justify"><a href="https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Electronic_Codebook_.28ECB.29" target="_blank">The Electronic codebook algorithm</a> is the simplest of the encryption modes, named after conventional physical codebooks.</p>
+        </div>
+      </div>
+      <div class="uk-width-1-2@s uk-width-1-3@l uk-width-1-4@xl">
+        <div class="uk-panel">
+          <h2>Cipher-block chaining (CBC)</h2>
+          <p class="uk-text-justify">With the <a href="https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher_Block_Chaining_.28CBC.29" target="_blank">Cipher Block Chaining algorithm</a> invented in 1976, each block of plaintext is XORed with the previous ciphertext block before being encrypted. This way, each ciphertext block depends on all plaintext blocks processed up to that point. To make each message unique, an initialization vector must be used in the first block.</p>
+        </div>
+      </div>
+      <div class="uk-width-1-2@s uk-width-1-3@l uk-width-1-4@xl">
+        <div class="uk-panel">
+          <h2>Propagating Cipher Block Chaining (PCBC)</h2>
+          <p class="uk-text-justify">The <a href="https://tools.ietf.org/html/rfc4503https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Propagating_Cipher_Block_Chaining_.28PCBC.29" target="_blank">Propagating Cipher Block Chaining Algorithm</a> or plaintext cipher-block chaining mode was designed to cause small changes in the ciphertext to propagate indefinitely when decrypting, as well as when encrypting.</p>
+        </div>
+      </div>
+      <div class="uk-width-1-2@s uk-width-1-3@l uk-width-1-4@xl">
+        <div class="uk-panel">
+          <h2>Cipher feedback (CFB)</h2>
+          <p class="uk-text-justify">The <a href="https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher_Feedback_.28CFB.29" target="_blank">Cipher Feedback Algorithm</a> is a close relative of CBC, makes a block cipher into a self-synchronizing stream cipher. Operation is very similar; in particular, CFB decryption is almost identical to CBC encryption performed in reverse.</p>
+        </div>
+      </div>
+      <div class="uk-width-1-2@s uk-width-1-3@l uk-width-1-4@xl">
+        <div class="uk-panel">
+          <h2>Output Feedback (OFB)</h2>
+          <p class="uk-text-justify">The <a href="https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Output_Feedback_.28OFB.29" target="_blank">Output Feedback Algorithm</a> makes a block cipher into a synchronous stream cipher. It generates keystream blocks, which are then XORed with the plaintext blocks to get the ciphertext.</p>
+        </div>
+      </div>
+      <div class="uk-width-1-2@s uk-width-1-3@l uk-width-1-4@xl">
+        <div class="uk-panel">
+          <h2>Counter (CTR)</h2>
+          <p class="uk-text-justify">The <a href="https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Counter_.28CTR.29" target="_blank">Counter</a> mode turns a block cipher into a stream cipher. It generates the next keystream block by encrypting successive values of a "counter".</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>  </li>
+        <li><div class="uk-section uk-section-default uk-section-small">
+  <div class="uk-container uk-text-center uk-container-large">
+    <h2 id="algorithms" class="uk-h1 uk-heading-large uk-margin-bottom-remove">Password-Based Key Derivation Functions</h2>
+    <p class="uk-text-large uk-text-justify uk-padding-small">A key derivation function's goal is to take some source of initial keying material and derive from it one or more cryptographically strong secret keys.</p>
+    <div class="uk-grid uk-grid-divider uk-grid-margin uk-padding-small" uk-grid>
+      <div class="uk-width-1-2@s uk-width-1-3@l">
+        <div class="uk-panel">
+          <h2>PBKDF1</h2>
+          <p class="uk-text-justify">The <a href="https://tools.ietf.org/html/rfc2898#section-5.1" target="_blank">Password-Based Key Derivation Function 1 algorithm</a> applies a hash function, which shall be MD2, MD5 or SHA-1, to derive keys.</p>
+        </div>
+      </div>
+      <div class="uk-width-1-2@s uk-width-1-3@l">
+        <div class="uk-panel">
+          <h2>PBKDF2</h2>
+          <p class="uk-text-justify">The <a href="https://www.ietf.org/rfc/rfc2104.txt" target="_blank">Password-Based Key Derivation Function 2 algorithm</a> applies a pseudorandom function to derive keys. The length of the derived key is essentially unbounded.</p>
+        </div>
+      </div>
+      <div class="uk-width-1-2@s uk-width-1-3@l">
+        <div class="uk-panel">
+          <h2>HKDF</h2>
+          <p class="uk-text-justify">The <a href="https://www.ietf.org/rfc/rfc2104.txthttps://tools.ietf.org/html/rfc5869" target="_blank">HMAC-based Extract-and-Expand Key Derivation Function algorithm</a> is intended to support a wide range of applications and requirements, and is conservative in its use of cryptographic hash functions.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>  </li>
+        <li><div class="uk-section uk-section-default uk-section-small">
+  <div class="uk-container uk-text-center uk-container-large">
+    <h2 id="algorithms" class="uk-h1 uk-heading-large uk-margin-bottom-remove">Data Padding</h2>
+    <p class="uk-text-large uk-text-justify uk-padding-small">Padding is typically the first step of a two-step padding scheme used in many hash functions including MD5 and SHA.</p>
+    <div class="uk-grid uk-grid-divider uk-grid-margin uk-padding-small" uk-grid>
+      <div class="uk-width-1-2@s uk-width-1-3@l">
+        <div class="uk-panel">
+          <h2>PKCS#5, PKCS#7</h2>
+          <p class="uk-text-justify"><a href="https://tools.ietf.org/html/rfc5652#section-6.3" target="_blank">The PKCS algorithm</a> maps an arbitrary string of octets (the data) to another string of octets (the ciphertext) under control of a content-encryption key.</p>
+        </div>
+      </div>
+      <div class="uk-width-1-3@s uk-width-1-3@l">
+        <div class="uk-panel">
+          <h2>Zero padding</h2>
+          <p class="uk-text-justify">With the <a href="https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher_Block_Chaining_.28CBC.29" target="_blank">Zero Padding algorithm</a> all the bytes that are required to be padded are padded with zero.</p>
+        </div>
+      </div>
+      <div class="uk-width-1-3@s uk-width-1-3@l">
+        <div class="uk-panel">
+          <h2>No padding</h2>
+          <p class="uk-text-justify">No padding is applied.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>  </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="uk-card uk-card-body uk-text-center uk-margin-small uk-padding-small">
+  <h1 id="get-involved" class="uk-heading-hero" style="letter-spacing: 1px;" uk-parallax='opacity: 0,1; x: 100,0; viewport: 0.3;'><span>Get Involved</span></h1>
+</div>
+<div class="mod-feature-block uk-section uk-section-muted uk-section-small">
+  <div class="uk-container uk-text-center">
+    <h1 style="letter-spacing: 1px;" >Become a part of the CryptoSwift community.</h1><br><br>
+    <div class="uk-text-left uk-padding-small" >
+    </div>    
+    <div class="uk-grid tm-grid-margin-large uk-grid-margin-large uk-padding-small" uk-grid="{target:'.uk-panel'}" >
+      <div class="uk-width-1-3@s"><a class="uk-panel mod-panel-link" href="http://twitter.com/krzyzanowskim">
+  <div class="mod-icon"><i uk-icon="icon: twitter; ratio: 2;"></i></div>
+  <h2 id="get-involved">Twitter</h2>
+  <p class="uk-text-justify uk-margin-small uk-padding-small uk-text-bold">Follow on Twitter for news and updates.</p>
+</a>
+      </div>
+      <div class="uk-width-1-3@s"><a class="uk-panel mod-panel-link" href="https://github.com/krzyzanowskim/CryptoSwift/issues">
+  <div class="mod-icon"><i uk-icon="icon: github; ratio: 2;"></i></div>
+  <h2 id="get-involved">Github</h2>
+  <p class="uk-text-justify uk-margin-small uk-padding-small uk-text-bold">Fork CryptoSwift and send a pull request, open an issue for a bug or for a feature request.</p>
+</a>
+<div class="uk-container uk-text-center uk-margin-small-top">
+    <a class="mod-donation uk-button uk-button-danger uk-border-rounded uk-button-small" href="#contribute-modal" uk-toggle title="Click to see the tips" uk-tooltip>Tips</a>
+</div>
+      </div>
+      <div class="uk-width-1-3@s"><a class="uk-panel mod-panel-link" href="https://github.com/krzyzanowskim/CryptoSwift">
+  <div class="mod-icon"><i uk-icon="icon: swift; ratio: 2;"></i></div>
+  <h2 id="get-involved">Playground</h2>
+  <p class="uk-text-left uk-margin-small uk-padding-small uk-text-bold">Swift playgrounds are a great way to share code and help each other. Submit a Playground PR to share example code.</p>
+</a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="uk-card uk-card-body uk-text-center uk-margin-small uk-padding-small">
+  <h1 id="contribution" class="uk-heading-hero" style="letter-spacing: 1px;" uk-parallax='opacity: 0,1; x: -100,0; viewport: 0.3;'><span>Contribution</span></h1>
+</div>
+<div class="mod-feature-column uk-section uk-section-default uk-section-small uk-padding-small">
+  <div class="uk-container uk-text-center uk-container-large">
+    <h1 class="mod-feature-contribution-title uk-heading-large uk-margin-remove-bottom uk-margin-medium-top" >Open Source</h1>
+    <div class="uk-text-left" ><p class="mod-feature-contribution-title uk-text-large uk-text-center uk-padding-small">CryptoSwift is an open source project focused on making it easier to integrate cryptography into your Swift projects.</p>
+    </div>   
+    <div class="uk-grid uk-grid-divider uk-grid-margin uk-padding-remove-vertical" uk-grid >
+      <div class="uk-width-1-3@s"><div class="uk-panel">
+  <h2 class="mod-feature-contribution-title" id="contribution">License</h2>
+  <p class="mod-feature-contribution-title uk-text-left">Permission is granted to anyone to use this software for any purpose, including commercial applications, and to alter it and redistribute it freely, <a href="#license-modal" uk-toggle title="Click to review complete license" uk-tooltip>subject to limited restrictions</a>.</p>
+</div>
+      </div>
+      <div class="uk-width-1-3@s"><div class="uk-panel">
+  <h2 class="mod-feature-contribution-title" id="contribution">Our Heroes</h2>
+  <p class="mod-feature-contribution-title uk-text-left">A big thanks to everyone that is using CryptoSwift and to those who were able to provide a <a class="uk-label uk-border-rounded mod-donation uk-text-lowercase" href="#donation-modal" uk-toggle title="Donate to this project" uk-tooltip>donation</a> without which project's like CryptoSwift wouldn't be possible.</p>
+</div>
+      </div>
+      <div class="uk-width-1-3@s"><div class="uk-panel">
+  <h2 class="mod-feature-contribution-title" id="contribution">Active Development</h2>
+  <p class="mod-feature-contribution-title uk-text-left">CryptoSwift is built by <a href="http://krzyzanowskim.com" target="_blank">Marcin Krzyżanowski</a>, using his extensive experience in using Internet security, to power corporate and private applications.</p>
+</div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="getting-started" class="uk-card uk-card-body uk-card-default uk-text-center uk-padding-small uk-margin-small ">
+  <h1 id="getting-started" class="uk-heading-hero" style="letter-spacing: 1px;" uk-parallax='opacity: 0,1; x: 100,0; viewport: 0.3;'><span>Getting Started</span></h1>
+</div>
+<div class="uk-container uk-text-center uk-container-large uk-margin-remove-bottom">
+  <div class="mod-feature-accordion uk-section uk-section-default uk-padding-small">
+    <div class="uk-card uk-card-body uk-border-rounded">
+      <h1 class="uk-heading-large uk-margin-remove-top" >Installation of CryptoSwift</h1>
+      <div class="uk-text-left" ><p>You can install CryptoSwift, by <a href="#download-modal" uk-toggle title="Click to show the download window" uk-tooltip>downloading</a> the latest release as either as zip or tar.gz file, or alternatively add it as a submodule to your project (a top level project directory).</p>
+<div class="uk-alert uk-border-rounded">
+  <p class="uk-h3 uk-padding-remove-vertical uk-margin-remove-bottom">Performance Consideration</p>
+  <ul class="uk-list uk-list-bullet">
+    <li>We recommend that you enable <a href="https://swift.org/blog/whole-module-optimizations/" target="_blank">Whole-Module Optimization</a> to improve performance.</li>
+    <li>Non-optimized builds will perform significantly worse.</li>
+  </ul>
+</div>
+      </div>        
+      <ul class="uk-text-left" uk-accordion>
+        <li>
+          <h2 id="embedded-framework" class="uk-accordion-title" style="font-variant-caps: all-small-caps; font-size: 24px; font-weight: 400;">Embedded Framework</h2><hr class="uk-margin-remove-vertical uk-padding-remove-vertical"><div class="uk-accordion-content">
+  <p>Embedded frameworks require a minimum deployment target of iOS 8 or OS X Mavericks (10.9).</p>
+  <div class="uk-grid uk-grid-divider uk-grid-margin uk-padding-small" uk-grid>
+    <div class="uk-width-1-2@s">
+      <div class="uk-panel uk-text-left">
+        <ul class="uk-list uk-list-bullet">
+          <li>Drag the CryptoSwift.xcodeproj file into your Xcode project, and add appropriate framework as a dependency to your target.</li>
+          <li>Now select your App and choose the General tab for the app target.</li>
+          <li>Find Embedded Binaries and press "+", then select CryptoSwift.framework (iOS, OS X, watchOS or tvOS)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="uk-width-1-2@s">
+      <div class="uk-panel">
+        <div uk-lightbox="animation: scale">
+          <a class="uk-button uk-button-default" href="/assets/img/install-1.png" data-caption="If the embedded framework option is not possible; you can add it as a new build phase for the target" style="border:0 !important;" title="Click to enlarge screenshots" uk-tooltip><img src="/assets/img/install-1.png" alt="Embedded Framework"></a>
+          <a class="uk-button uk-button-default" href="/assets/img/install-2.png" caption="Adding a new build phase"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        </li>
+        <li>
+          <h2 id="ios,-macos,-watchos,-tvos" class="uk-accordion-title" style="font-variant-caps: all-small-caps; font-size: 24px; font-weight: 400;">iOS, macOS, watchOS, tvOS</h2><hr class="uk-margin-remove-vertical uk-padding-remove-vertical"><div class="uk-accordion-content">
+<div class="uk-text-left">
+  <p>In the project, you'll find <a href="http://promisekit.org/news/2016/08/Multiplatform-Single-Scheme-Xcode-Projects/" target="_blank">single scheme</a> for all platforms:</p>
+  <ul class="uk-list uk-list-bullet">
+    <li>CryptoSwift</li>
+  </ul>
+</div>
+        </li>
+        <li>
+          <h2 id="swift-versions-support" class="uk-accordion-title" style="font-variant-caps: all-small-caps; font-size: 24px; font-weight: 400;">Swift Versions Support</h2><hr class="uk-margin-remove-vertical uk-padding-remove-vertical"><div class="uk-accordion-content">
+  <div class="uk-card uk-card-body uk-card-small uk-margin-remove-top uk-padding-remove-top">
+    <ul class="uk-list uk-list-striped">
+      <li>Swift 1.2: branch <a href="https://github.com/krzyzanowskim/CryptoSwift/tree/swift12" target="_blank">swift12</a> version <= 0.0.13</li>
+      <li>Swift 2.1: branch <a href="https://github.com/krzyzanowskim/CryptoSwift/tree/swift21" target="_blank">swift21</a> version <= 0.2.3</li>
+      <li>Swift 2.2, 2.3: branch <a href="https://github.com/krzyzanowskim/CryptoSwift/tree/swift2" target="_blank">swift2</a> version <= 0.5.2</li>
+      <li>Swift 3.1, branch <a href="https://github.com/krzyzanowskim/CryptoSwift/tree/swift3" target="_blank">swift3</a> version <= 0.6.9</li>
+      <li>Swift 3.2, branch <a href="https://github.com/krzyzanowskim/CryptoSwift/tree/swift32" target="_blank">swift32</a> version = 0.7.0</li>
+      <li>Swift 4.0, branch <a href="https://github.com/krzyzanowskim/CryptoSwift/tree/master" target="_blank">master</a> version >= 0.7.1</li>
+    </ul>
+  </div>
+</div>
+        </li>
+        <li>
+          <h2 id="cocoapods" class="uk-accordion-title" style="font-variant-caps: all-small-caps; font-size: 24px; font-weight: 400;">Cocoapods</h2><hr class="uk-margin-remove-vertical uk-padding-remove-vertical"><div class="uk-accordion-content">
+  <p>CryptoSwift also supports <a href="http://cocoapods.org/?q=cryptoSwift" target="_blank">Cocoapods</a>.</p>
+  <div id="language" class="Cocoapod uk-card uk-card-default uk-box-shadow-small uk-border-rounded uk-card-body uk-padding-remove uk-margin-remove" style="display: block; background-color: #efefef;"> 
+  <ul id="accordion-cryptographicalgorithmsimplementedinahrefhttpswiftorgtargetblankswifta-codeblock-Cocoapod1" class="uk-list">
+    <li class="uk-open">
+      <span class="uk-h6 uk-text-small uk-padding-remove uk-margin-remove-vertical uk-text-capitalize">
+        <span class="uk-align-right">
+          <span class="uk-icon-link" title="Copy To Clipboard" uk-tooltip><a onclick="copyElementInnerTextToClipboard('cryptographicalgorithmsimplementedinahrefhttpswiftorgtargetblankswifta-codeblock-Cocoapod1');" uk-icon="icon: copy; ratio: 1"></a></span>
+          <span class="uk-icon-link" title="Download" uk-tooltip><a onclick="window.open('https://cryptoswift.io/assets/snippets/installation/getting-started/1.pod');" uk-icon="icon: download; ratio: 1"></a></span>
+        </span>
+      </span>
+      <div id="cryptographicalgorithmsimplementedinahrefhttpswiftorgtargetblankswifta-codeblock-Cocoapod1" class="uk-accordion-content uk-margin-remove-vertical uk-padding-remove-vertical">
+        <figure class="highlight"><pre><code class="language-shell" data-lang="shell">platform :ios, <span class="s1">'8.0'</span>
+use_frameworks!
+
+target <span class="s1">'MyApp'</span> <span class="k">do
+</span>pod <span class="s1">'CryptoSwift'</span>
+end</code></pre></figure>
+      </div>
+    </li>
+  </ul>
+</div>
+  <p>Alternatively you can obtain the latest version with this branch of code:</p>
+  <div id="language" class="Cocoapod uk-card uk-card-default uk-box-shadow-small uk-border-rounded uk-card-body uk-padding-remove uk-margin-remove" style="display: block; background-color: #efefef;"> 
+  <ul id="accordion-cryptographicalgorithmsimplementedinahrefhttpswiftorgtargetblankswifta-codeblock-Cocoapod2" class="uk-list">
+    <li class="uk-open">
+      <span class="uk-h6 uk-text-small uk-padding-remove uk-margin-remove-vertical uk-text-capitalize">
+        <span class="uk-align-right">
+          <span class="uk-icon-link" title="Copy To Clipboard" uk-tooltip><a onclick="copyElementInnerTextToClipboard('cryptographicalgorithmsimplementedinahrefhttpswiftorgtargetblankswifta-codeblock-Cocoapod2');" uk-icon="icon: copy; ratio: 1"></a></span>
+          <span class="uk-icon-link" title="Download" uk-tooltip><a onclick="window.open('https://cryptoswift.io/assets/snippets/installation/getting-started/2.pod');" uk-icon="icon: download; ratio: 1"></a></span>
+        </span>
+      </span>
+      <div id="cryptographicalgorithmsimplementedinahrefhttpswiftorgtargetblankswifta-codeblock-Cocoapod2" class="uk-accordion-content uk-margin-remove-vertical uk-padding-remove-vertical">
+        <figure class="highlight"><pre><code class="language-shell" data-lang="shell">pod <span class="s1">'CryptoSwift'</span>, :git <span class="o">=&gt;</span> <span class="s2">"https://github.com/krzyzanowskim/CryptoSwift"</span>, :branch <span class="o">=&gt;</span> <span class="s2">"master"</span></code></pre></figure>
+      </div>
+    </li>
+  </ul>
+</div>
+  <div class="uk-alert uk-border-rounded uk-margin-remove-top">
+    <p class="uk-h3 uk-padding-remove-vertical uk-margin-remove-bottom">Performance Consideration</p>
+    <ul class="uk-list uk-list-bullet">
+      <li>Bear in mind that CocoaPods will build CryptoSwift by default without <a href="https://swift.org/blog/whole-module-optimizations/" target="_blank">Whole-Module Optimization</a> and that will impact performance.</li>
+      <li>This can however be changed manually after installation, or alternatively use the <a href="https://github.com/jedlewison/cocoapods-wholemodule" target="_blank">cocoapods-wholemodule plugin</a>.</li>
+    </ul>
+  </div>
+</div>
+        </li>
+        <li>
+          <h2 id="carthage" class="uk-accordion-title" style="font-variant-caps: all-small-caps; font-size: 24px; font-weight: 400;">Carthage</h2><hr class="uk-margin-remove-vertical uk-padding-remove-vertical"><div class="uk-accordion-content uk-card uk-card-body">
+  <p>You can use <a href="https://github.com/Carthage/Carthage" target="_blank">Carthage</a> by creating a cartfile that contains this:</p>
+  <div id="language" class="Carthage uk-card uk-card-default uk-box-shadow-small uk-border-rounded uk-card-body uk-padding-remove uk-margin-remove" style="display: block; background-color: #efefef;"> 
+  <ul id="accordion-cryptographicalgorithmsimplementedinahrefhttpswiftorgtargetblankswifta-codeblock-Carthage3" class="uk-list">
+    <li class="uk-open">
+      <span class="uk-h6 uk-text-small uk-padding-remove uk-margin-remove-vertical uk-text-capitalize">
+        <span class="uk-align-right">
+          <span class="uk-icon-link" title="Copy To Clipboard" uk-tooltip><a onclick="copyElementInnerTextToClipboard('cryptographicalgorithmsimplementedinahrefhttpswiftorgtargetblankswifta-codeblock-Carthage3');" uk-icon="icon: copy; ratio: 1"></a></span>
+          <span class="uk-icon-link" title="Download" uk-tooltip><a onclick="window.open('https://cryptoswift.io/assets/snippets/installation/getting-started/1.cart');" uk-icon="icon: download; ratio: 1"></a></span>
+        </span>
+      </span>
+      <div id="cryptographicalgorithmsimplementedinahrefhttpswiftorgtargetblankswifta-codeblock-Carthage3" class="uk-accordion-content uk-margin-remove-vertical uk-padding-remove-vertical">
+        <figure class="highlight"><pre><code class="language-shell" data-lang="shell">github <span class="s2">"krzyzanowskim/CryptoSwift"</span></code></pre></figure>
+      </div>
+    </li>
+  </ul>
+</div>
+  <p class="uk-margin-remove-top">Run carthage to build the framework and drag the built CryptoSwift.framework into your Xcode project. Follow <a href="https://github.com/Carthage/Carthage#getting-started" target="_blank">build instructions</a>.</p>
+  <div class="uk-alert uk-border-rounded uk-margin-remove-top">
+    <p class="uk-h3 uk-padding-remove-vertical uk-margin-remove-bottom">Common Issues</p>
+    <p class="uk-margin-remove-top">Review the following <a href="https://github.com/krzyzanowskim/CryptoSwift/issues/492#issuecomment-330822874" target="_blank">commonly reported issues</a>.</p>
+  </div>
+</div>
+        </li>
+        <li>
+          <h2 id="swift-package-manager" class="uk-accordion-title" style="font-variant-caps: all-small-caps; font-size: 24px; font-weight: 400;">Swift Package Manager</h2><hr class="uk-margin-remove-vertical uk-padding-remove-vertical"><div class="uk-accordion-content">
+  <p>You can use <a href="https://swift.org/package-manager/" target="_blank">Swift Package Manager</a> and specify the CryptoSwift dependency in <code>Package.swift</code> by adding this:.</p>
+  <div id="language" class="Swift uk-card uk-card-default uk-box-shadow-small uk-border-rounded uk-card-body uk-padding-remove uk-margin-remove" style="display: block; background-color: #efefef;"> 
+  <ul id="accordion-cryptographicalgorithmsimplementedinahrefhttpswiftorgtargetblankswifta-codeblock-Swift4" class="uk-list">
+    <li class="uk-open">
+      <span class="uk-h6 uk-text-small uk-padding-remove uk-margin-remove-vertical uk-text-capitalize">
+        <span class="uk-align-right">
+          <span class="uk-icon-link" title="Copy To Clipboard" uk-tooltip><a onclick="copyElementInnerTextToClipboard('cryptographicalgorithmsimplementedinahrefhttpswiftorgtargetblankswifta-codeblock-Swift4');" uk-icon="icon: copy; ratio: 1"></a></span>
+          <span class="uk-icon-link" title="Download" uk-tooltip><a onclick="window.open('https://cryptoswift.io/assets/snippets/installation/getting-started/1.swift');" uk-icon="icon: download; ratio: 1"></a></span>
+        </span>
+      </span>
+      <div id="cryptographicalgorithmsimplementedinahrefhttpswiftorgtargetblankswifta-codeblock-Swift4" class="uk-accordion-content uk-margin-remove-vertical uk-padding-remove-vertical">
+        <figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="nv">dependencies</span><span class="p">:</span> <span class="p">[</span>
+    <span class="o">.</span><span class="nf">package</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="s">"https://github.com/krzyzanowskim/CryptoSwift.git"</span><span class="p">,</span> <span class="o">.</span><span class="nf">upToNextMinor</span><span class="p">(</span><span class="nv">from</span><span class="p">:</span> <span class="s">"0.8.0"</span><span class="p">))</span>
+<span class="p">]</span></code></pre></figure>
+      </div>
+    </li>
+  </ul>
+</div>
+  <p>or more strictly with this:</p>
+  <div id="language" class="Swift uk-card uk-card-default uk-box-shadow-small uk-border-rounded uk-card-body uk-padding-remove uk-margin-remove" style="display: block; background-color: #efefef;"> 
+  <ul id="accordion-cryptographicalgorithmsimplementedinahrefhttpswiftorgtargetblankswifta-codeblock-Swift5" class="uk-list">
+    <li class="uk-open">
+      <span class="uk-h6 uk-text-small uk-padding-remove uk-margin-remove-vertical uk-text-capitalize">
+        <span class="uk-align-right">
+          <span class="uk-icon-link" title="Copy To Clipboard" uk-tooltip><a onclick="copyElementInnerTextToClipboard('cryptographicalgorithmsimplementedinahrefhttpswiftorgtargetblankswifta-codeblock-Swift5');" uk-icon="icon: copy; ratio: 1"></a></span>
+          <span class="uk-icon-link" title="Download" uk-tooltip><a onclick="window.open('https://cryptoswift.io/assets/snippets/installation/getting-started/2.swift');" uk-icon="icon: download; ratio: 1"></a></span>
+        </span>
+      </span>
+      <div id="cryptographicalgorithmsimplementedinahrefhttpswiftorgtargetblankswifta-codeblock-Swift5" class="uk-accordion-content uk-margin-remove-vertical uk-padding-remove-vertical">
+        <figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="nv">dependencies</span><span class="p">:</span> <span class="p">[</span>
+    <span class="o">.</span><span class="nf">package</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="s">"https://github.com/krzyzanowskim/CryptoSwift.git"</span><span class="p">,</span> <span class="nv">from</span><span class="p">:</span> <span class="s">"0.8.0"</span><span class="p">)</span>
+<span class="p">]</span></code></pre></figure>
+      </div>
+    </li>
+  </ul>
+</div>
+  <div class="uk-alert uk-border-rounded uk-margin-remove-top">
+    <p class="uk-h3 uk-padding-remove-vertical uk-margin-remove-bottom">If you need more details</p>
+    <p class="uk-margin-remove-top">Refer to this <a href="http://blog.krzyzanowskim.com/2016/08/09/package-swift-manual/" target="_blank">manual on Swift Package Manager</a>.</p>
+  </div>
+</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div id="getting-started" class="uk-card uk-card-body uk-card-default uk-text-center uk-padding-small uk-margin-small ">
+  <h1 id="usage" class="uk-heading-hero" style="letter-spacing: 1px;" uk-parallax='opacity: 0,1; x: -100,0; viewport: 0.3;'><span>Usage</span></h1>
+</div>
+<div class="uk-container uk-text-center uk-container-large uk-margin-remove-bottom">
+  <div class="mod-feature-accordion uk-section uk-section-default uk-padding-small">
+    <div class="uk-card uk-card-body uk-border-rounded">
+      <h1 class="uk-heading-large uk-margin-remove-top" >Examples of how to use CryptoSwift</h1>
+      <div class="uk-text-left" ><h2 class="uk-h1">Basics</h2>
+
+  <div id="language" class=" uk-card uk-card-default uk-box-shadow-small uk-border-rounded uk-card-body uk-padding-small uk-margin-remove" style="display: block; background-color: #efefef;"> 
+  <ul id="accordion-cryptographicalgorithmsimplementedinahrefhttpswiftorgtargetblankswifta-codeblock-6" class="uk-list">
+    <li class="uk-open">
+      <span class="uk-h6 uk-text-small uk-padding-remove-vertical uk-text-capitalize">
+        <span class="uk-align-right">
+          <span class="uk-icon-link" title="Copy To Clipboard" uk-tooltip><a onclick="copyElementInnerTextToClipboard('cryptographicalgorithmsimplementedinahrefhttpswiftorgtargetblankswifta-codeblock-6');" uk-icon="icon: copy; ratio: 1"></a></span>
+          <span class="uk-icon-link" title="Download" uk-tooltip><a onclick="window.open('https://cryptoswift.io/assets/snippets/examples/basics/1.swift');" uk-icon="icon: download; ratio: 1"></a></span>
+        </span>
+      </span>
+      <div id="cryptographicalgorithmsimplementedinahrefhttpswiftorgtargetblankswifta-codeblock-6" class="uk-accordion-content uk-margin-remove-bottom uk-margin-small-top uk-padding-remove-vertical">
+        <figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="kd">import</span> <span class="kt">CryptoSwift</span></code></pre></figure>
+      </div>
+    </li>
+  </ul>
+</div>
+<p>CryptoSwift uses array of bytes aka <code>Array&lt;UInt8&gt;</code> as a base type for all operations. Every data may be converted to a stream of bytes. You will find convenience functions that accept String or Data, and it will be internally converted to the array of bytes.</p>
+      </div>     
+      <div class="uk-text-left" >
+        <h2 id="working-with-ciphers" class="uk-h1">Working with Ciphers</h2>
+        <div class="intro-header"></div>
+<div class="uk-grid uk-padding-remove" uk-grid>
+  <div class="uk-width-1-1">
+  <h5 id="chacha20">ChaCha20</h5>
+
+<div id="language" class=" uk-card uk-card-default uk-box-shadow-small uk-border-rounded uk-card-body uk-padding-small uk-margin-remove" style="display: block; background-color: #efefef;">
+  <ul id="accordion-workingwithciphers-codeblock-1" class="uk-list">
+    <li class="uk-open">
+      <span class="uk-h6 uk-text-small uk-padding-remove-vertical uk-text-capitalize">
+        <span class="uk-align-right">
+          <span class="uk-icon-link" title="Copy To Clipboard" uk-tooltip=""><a onclick="copyElementInnerTextToClipboard('workingwithciphers-codeblock-1');" uk-icon="icon: copy; ratio: 1"></a></span>
+          <span class="uk-icon-link" title="Download" uk-tooltip=""><a onclick="window.open('https://cryptoswift.io/assets/snippets/examples/ciphers/1.swift');" uk-icon="icon: download; ratio: 1"></a></span>
+        </span>
+      </span>
+      <div id="workingwithciphers-codeblock-1" class="uk-accordion-content uk-margin-remove-bottom uk-margin-small-top uk-padding-remove-vertical">
+        
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">let</span> <span class="nv">encrypted</span> <span class="o">=</span> <span class="k">try</span> <span class="nf">ChaCha20</span><span class="p">(</span><span class="nv">key</span><span class="p">:</span> <span class="n">key</span><span class="p">,</span> <span class="nv">iv</span><span class="p">:</span> <span class="n">iv</span><span class="p">)</span><span class="o">.</span><span class="nf">encrypt</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+<span class="k">let</span> <span class="nv">decrypted</span> <span class="o">=</span> <span class="k">try</span> <span class="nf">ChaCha20</span><span class="p">(</span><span class="nv">key</span><span class="p">:</span> <span class="n">key</span><span class="p">,</span> <span class="nv">iv</span><span class="p">:</span> <span class="n">iv</span><span class="p">)</span><span class="o">.</span><span class="nf">decrypt</span><span class="p">(</span><span class="n">encrypted</span><span class="p">)</span></code></pre></figure>
+
+      </div>
+    </li>
+  </ul>
+</div>
+
+<h5 id="rabbit">Rabbit</h5>
+
+<div id="language" class=" uk-card uk-card-default uk-box-shadow-small uk-border-rounded uk-card-body uk-padding-small uk-margin-remove" style="display: block; background-color: #efefef;">
+  <ul id="accordion-workingwithciphers-codeblock-2" class="uk-list">
+    <li class="uk-open">
+      <span class="uk-h6 uk-text-small uk-padding-remove-vertical uk-text-capitalize">
+        <span class="uk-align-right">
+          <span class="uk-icon-link" title="Copy To Clipboard" uk-tooltip=""><a onclick="copyElementInnerTextToClipboard('workingwithciphers-codeblock-2');" uk-icon="icon: copy; ratio: 1"></a></span>
+          <span class="uk-icon-link" title="Download" uk-tooltip=""><a onclick="window.open('https://cryptoswift.io/assets/snippets/examples/ciphers/2.swift');" uk-icon="icon: download; ratio: 1"></a></span>
+        </span>
+      </span>
+      <div id="workingwithciphers-codeblock-2" class="uk-accordion-content uk-margin-remove-bottom uk-margin-small-top uk-padding-remove-vertical">
+        
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">let</span> <span class="nv">encrypted</span> <span class="o">=</span> <span class="k">try</span> <span class="nf">Rabbit</span><span class="p">(</span><span class="nv">key</span><span class="p">:</span> <span class="n">key</span><span class="p">,</span> <span class="nv">iv</span><span class="p">:</span> <span class="n">iv</span><span class="p">)</span><span class="o">.</span><span class="nf">encrypt</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+<span class="k">let</span> <span class="nv">decrypted</span> <span class="o">=</span> <span class="k">try</span> <span class="nf">Rabbit</span><span class="p">(</span><span class="nv">key</span><span class="p">:</span> <span class="n">key</span><span class="p">,</span> <span class="nv">iv</span><span class="p">:</span> <span class="n">iv</span><span class="p">)</span><span class="o">.</span><span class="nf">decrypt</span><span class="p">(</span><span class="n">encrypted</span><span class="p">)</span></code></pre></figure>
+
+      </div>
+    </li>
+  </ul>
+</div>
+
+<h5 id="blowfish">Blowfish</h5>
+
+<div id="language" class=" uk-card uk-card-default uk-box-shadow-small uk-border-rounded uk-card-body uk-padding-small uk-margin-remove" style="display: block; background-color: #efefef;">
+  <ul id="accordion-workingwithciphers-codeblock-3" class="uk-list">
+    <li class="uk-open">
+      <span class="uk-h6 uk-text-small uk-padding-remove-vertical uk-text-capitalize">
+        <span class="uk-align-right">
+          <span class="uk-icon-link" title="Copy To Clipboard" uk-tooltip=""><a onclick="copyElementInnerTextToClipboard('workingwithciphers-codeblock-3');" uk-icon="icon: copy; ratio: 1"></a></span>
+          <span class="uk-icon-link" title="Download" uk-tooltip=""><a onclick="window.open('https://cryptoswift.io/assets/snippets/examples/ciphers/3.swift');" uk-icon="icon: download; ratio: 1"></a></span>
+        </span>
+      </span>
+      <div id="workingwithciphers-codeblock-3" class="uk-accordion-content uk-margin-remove-bottom uk-margin-small-top uk-padding-remove-vertical">
+        
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">let</span> <span class="nv">encrypted</span> <span class="o">=</span> <span class="k">try</span> <span class="nf">Blowfish</span><span class="p">(</span><span class="nv">key</span><span class="p">:</span> <span class="n">key</span><span class="p">,</span> <span class="nv">blockMode</span><span class="p">:</span> <span class="o">.</span><span class="nf">CBC</span><span class="p">(</span><span class="nv">iv</span><span class="p">:</span> <span class="n">iv</span><span class="p">),</span> <span class="nv">padding</span><span class="p">:</span> <span class="o">.</span><span class="n">pkcs7</span><span class="p">)</span><span class="o">.</span><span class="nf">encrypt</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+<span class="k">let</span> <span class="nv">decrypted</span> <span class="o">=</span> <span class="k">try</span> <span class="nf">Blowfish</span><span class="p">(</span><span class="nv">key</span><span class="p">:</span> <span class="n">key</span><span class="p">,</span> <span class="nv">blockMode</span><span class="p">:</span> <span class="o">.</span><span class="nf">CBC</span><span class="p">(</span><span class="nv">iv</span><span class="p">:</span> <span class="n">iv</span><span class="p">),</span> <span class="nv">padding</span><span class="p">:</span> <span class="o">.</span><span class="n">pkcs7</span><span class="p">)</span><span class="o">.</span><span class="nf">decrypt</span><span class="p">(</span><span class="n">encrypted</span><span class="p">)</span></code></pre></figure>
+
+      </div>
+    </li>
+  </ul>
+</div>
+
+<h5 id="aes">AES</h5>
+<div class="uk-alert uk-border-rounded">
+  <p class="uk-h3 uk-padding-remove-vertical uk-margin-remove-bottom">Notice regarding padding</p>
+  <p>Manual padding of data is optional, and CryptoSwift is using PKCS7 padding by default. If you need manually disable/enable padding, you can do this by setting parameter for AES class</p>
+</div>
+
+<p>Variant of AES encryption (AES-128, AES-192, AES-256) depends on given key length:</p>
+
+<ul class="uk-list uk-list-bullet">
+  <li>AES-128 = 16 bytes</li>
+  <li>AES-192 = 24 bytes</li>
+  <li>AES-256 = 32 bytes</li>
+  <li>AES-256 example</li>
+</ul>
+
+<div id="language" class=" uk-card uk-card-default uk-box-shadow-small uk-border-rounded uk-card-body uk-padding-small uk-margin-remove" style="display: block; background-color: #efefef;">
+  <ul id="accordion-workingwithciphers-codeblock-4" class="uk-list">
+    <li class="uk-open">
+      <span class="uk-h6 uk-text-small uk-padding-remove-vertical uk-text-capitalize">
+        <span class="uk-align-right">
+          <span class="uk-icon-link" title="Copy To Clipboard" uk-tooltip=""><a onclick="copyElementInnerTextToClipboard('workingwithciphers-codeblock-4');" uk-icon="icon: copy; ratio: 1"></a></span>
+          <span class="uk-icon-link" title="Download" uk-tooltip=""><a onclick="window.open('https://cryptoswift.io/assets/snippets/examples/ciphers/4.swift');" uk-icon="icon: download; ratio: 1"></a></span>
+        </span>
+      </span>
+      <div id="workingwithciphers-codeblock-4" class="uk-accordion-content uk-margin-remove-bottom uk-margin-small-top uk-padding-remove-vertical">
+        
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">try</span> <span class="nf">AES</span><span class="p">(</span><span class="nv">key</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="o">...</span><span class="p">,</span><span class="mi">32</span><span class="p">],</span> <span class="nv">blockMode</span><span class="p">:</span> <span class="o">.</span><span class="nf">CBC</span><span class="p">(</span><span class="nv">iv</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="o">...</span><span class="p">,</span><span class="mi">16</span><span class="p">]),</span> <span class="nv">padding</span><span class="p">:</span> <span class="o">.</span><span class="n">pkcs7</span><span class="p">)</span></code></pre></figure>
+
+      </div>
+    </li>
+  </ul>
+</div>
+
+<h5 id="all-at-once">All at once</h5>
+
+<div id="language" class=" uk-card uk-card-default uk-box-shadow-small uk-border-rounded uk-card-body uk-padding-small uk-margin-remove" style="display: block; background-color: #efefef;">
+  <ul id="accordion-workingwithciphers-codeblock-5" class="uk-list">
+    <li class="uk-open">
+      <span class="uk-h6 uk-text-small uk-padding-remove-vertical uk-text-capitalize">
+        <span class="uk-align-right">
+          <span class="uk-icon-link" title="Copy To Clipboard" uk-tooltip=""><a onclick="copyElementInnerTextToClipboard('workingwithciphers-codeblock-5');" uk-icon="icon: copy; ratio: 1"></a></span>
+          <span class="uk-icon-link" title="Download" uk-tooltip=""><a onclick="window.open('https://cryptoswift.io/assets/snippets/examples/ciphers/5.swift');" uk-icon="icon: download; ratio: 1"></a></span>
+        </span>
+      </span>
+      <div id="workingwithciphers-codeblock-5" class="uk-accordion-content uk-margin-remove-bottom uk-margin-small-top uk-padding-remove-vertical">
+        
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="nf">do</span> <span class="p">{</span>
+  <span class="k">let</span> <span class="nv">aes</span> <span class="o">=</span> <span class="k">try</span> <span class="nf">AES</span><span class="p">(</span><span class="nv">key</span><span class="p">:</span> <span class="s">"passwordpassword"</span><span class="p">,</span> <span class="nv">iv</span><span class="p">:</span> <span class="s">"drowssapdrowssap"</span><span class="p">)</span> <span class="c1">// aes128</span>
+  <span class="k">let</span> <span class="nv">ciphertext</span> <span class="o">=</span> <span class="k">try</span> <span class="n">aes</span><span class="o">.</span><span class="nf">encrypt</span><span class="p">(</span><span class="nf">Array</span><span class="p">(</span><span class="s">"Nullam quis risus eget urna mollis ornare vel eu leo."</span><span class="o">.</span><span class="n">utf8</span><span class="p">))</span>
+<span class="p">}</span> <span class="nf">catch</span> <span class="p">{</span> <span class="p">}</span></code></pre></figure>
+
+      </div>
+    </li>
+  </ul>
+</div>
+
+<h5 id="incremental-updates">Incremental updates</h5>
+<p>Incremental operations use instance of Cryptor and encrypt/decrypt one part at a time, this way you can save on memory for large files.</p>
+
+<div id="language" class=" uk-card uk-card-default uk-box-shadow-small uk-border-rounded uk-card-body uk-padding-small uk-margin-remove" style="display: block; background-color: #efefef;">
+  <ul id="accordion-workingwithciphers-codeblock-6" class="uk-list">
+    <li class="uk-open">
+      <span class="uk-h6 uk-text-small uk-padding-remove-vertical uk-text-capitalize">
+        <span class="uk-align-right">
+          <span class="uk-icon-link" title="Copy To Clipboard" uk-tooltip=""><a onclick="copyElementInnerTextToClipboard('workingwithciphers-codeblock-6');" uk-icon="icon: copy; ratio: 1"></a></span>
+          <span class="uk-icon-link" title="Download" uk-tooltip=""><a onclick="window.open('https://cryptoswift.io/assets/snippets/examples/ciphers/6.swift');" uk-icon="icon: download; ratio: 1"></a></span>
+        </span>
+      </span>
+      <div id="workingwithciphers-codeblock-6" class="uk-accordion-content uk-margin-remove-bottom uk-margin-small-top uk-padding-remove-vertical">
+        
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="nf">do</span> <span class="p">{</span>
+  <span class="k">var</span> <span class="nv">encryptor</span> <span class="o">=</span> <span class="k">try</span> <span class="nf">AES</span><span class="p">(</span><span class="nv">key</span><span class="p">:</span> <span class="s">"passwordpassword"</span><span class="p">,</span> <span class="nv">iv</span><span class="p">:</span> <span class="s">"drowssapdrowssap"</span><span class="p">)</span><span class="o">.</span><span class="nf">makeEncryptor</span><span class="p">()</span>
+
+  <span class="k">var</span> <span class="nv">ciphertext</span> <span class="o">=</span> <span class="kt">Array</span><span class="o">&lt;</span><span class="kt">UInt8</span><span class="o">&gt;</span><span class="p">()</span>
+  <span class="c1">// aggregate partial results</span>
+  <span class="n">ciphertext</span> <span class="o">+=</span> <span class="k">try</span> <span class="n">encryptor</span><span class="o">.</span><span class="nf">update</span><span class="p">(</span><span class="nv">withBytes</span><span class="p">:</span> <span class="nf">Array</span><span class="p">(</span><span class="s">"Nullam quis risus "</span><span class="o">.</span><span class="n">utf8</span><span class="p">))</span>
+  <span class="n">ciphertext</span> <span class="o">+=</span> <span class="k">try</span> <span class="n">encryptor</span><span class="o">.</span><span class="nf">update</span><span class="p">(</span><span class="nv">withBytes</span><span class="p">:</span> <span class="nf">Array</span><span class="p">(</span><span class="s">"eget urna mollis "</span><span class="o">.</span><span class="n">utf8</span><span class="p">))</span>
+  <span class="n">ciphertext</span> <span class="o">+=</span> <span class="k">try</span> <span class="n">encryptor</span><span class="o">.</span><span class="nf">update</span><span class="p">(</span><span class="nv">withBytes</span><span class="p">:</span> <span class="nf">Array</span><span class="p">(</span><span class="s">"ornare vel eu leo."</span><span class="o">.</span><span class="n">utf8</span><span class="p">))</span>
+  <span class="c1">// finish at the end</span>
+  <span class="n">ciphertext</span> <span class="o">+=</span> <span class="k">try</span> <span class="n">encryptor</span><span class="o">.</span><span class="nf">finish</span><span class="p">()</span>
+
+  <span class="nf">print</span><span class="p">(</span><span class="n">ciphertext</span><span class="o">.</span><span class="nf">toHexString</span><span class="p">())</span>
+<span class="p">}</span> <span class="nf">catch</span> <span class="p">{</span>
+  <span class="nf">print</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+<span class="p">}</span></code></pre></figure>
+
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="uk-alert uk-border-rounded uk-text-lead">
+  <p>Have a look at our <a href="https://github.com/krzyzanowskim/CryptoSwift/blob/master/CryptoSwift.playground/Contents.swift" target="_blank">playground</a> for sample code that works with streams.</p>
+</div>
+
+  </div>
+</div>
+        <h2 id="password-based-key-derivation-functions" class="uk-h1">Password-Based Key Derivation Functions</h2>
+        <div class="intro-header"></div>
+<div class="uk-grid uk-padding-remove" uk-grid>
+  <div class="uk-width-1-1">
+  
+<div id="language" class=" uk-card uk-card-default uk-box-shadow-small uk-border-rounded uk-card-body uk-padding-small uk-margin-remove" style="display: block; background-color: #efefef;">
+  <ul id="accordion-passwordbasedkeyderivationfunctions-codeblock-1" class="uk-list">
+    <li class="uk-open">
+      <span class="uk-h6 uk-text-small uk-padding-remove-vertical uk-text-capitalize">
+        <span class="uk-align-right">
+          <span class="uk-icon-link" title="Copy To Clipboard" uk-tooltip=""><a onclick="copyElementInnerTextToClipboard('passwordbasedkeyderivationfunctions-codeblock-1');" uk-icon="icon: copy; ratio: 1"></a></span>
+          <span class="uk-icon-link" title="Download" uk-tooltip=""><a onclick="window.open('https://cryptoswift.io/assets/snippets/examples/key-derivation/1.swift');" uk-icon="icon: download; ratio: 1"></a></span>
+        </span>
+      </span>
+      <div id="passwordbasedkeyderivationfunctions-codeblock-1" class="uk-accordion-content uk-margin-remove-bottom uk-margin-small-top uk-padding-remove-vertical">
+        
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">let</span> <span class="nv">password</span><span class="p">:</span> <span class="kt">Array</span><span class="o">&lt;</span><span class="kt">UInt8</span><span class="o">&gt;</span> <span class="o">=</span> <span class="nf">Array</span><span class="p">(</span><span class="s">"s33krit"</span><span class="o">.</span><span class="n">utf8</span><span class="p">)</span>
+<span class="k">let</span> <span class="nv">salt</span><span class="p">:</span> <span class="kt">Array</span><span class="o">&lt;</span><span class="kt">UInt8</span><span class="o">&gt;</span> <span class="o">=</span> <span class="nf">Array</span><span class="p">(</span><span class="s">"nacllcan"</span><span class="o">.</span><span class="n">utf8</span><span class="p">)</span>
+
+<span class="k">try</span> <span class="kt">PKCS5</span><span class="o">.</span><span class="nf">PBKDF2</span><span class="p">(</span><span class="nv">password</span><span class="p">:</span> <span class="n">password</span><span class="p">,</span> <span class="nv">salt</span><span class="p">:</span> <span class="n">salt</span><span class="p">,</span> <span class="nv">iterations</span><span class="p">:</span> <span class="mi">4096</span><span class="p">,</span> <span class="nv">variant</span><span class="p">:</span> <span class="o">.</span><span class="n">sha256</span><span class="p">)</span><span class="o">.</span><span class="nf">calculate</span><span class="p">()</span></code></pre></figure>
+
+      </div>
+    </li>
+  </ul>
+</div>
+
+  </div>
+</div>
+        <h2 id="message-authenticators" class="uk-h1">Message Authenticators</h2>
+        <div class="intro-header"></div>
+<div class="uk-grid uk-padding-remove" uk-grid>
+  <div class="uk-width-1-1">
+  
+<div id="language" class=" uk-card uk-card-default uk-box-shadow-small uk-border-rounded uk-card-body uk-padding-small uk-margin-remove" style="display: block; background-color: #efefef;">
+  <ul id="accordion-messageauthenticators-codeblock-1" class="uk-list">
+    <li class="uk-open">
+      <span class="uk-h6 uk-text-small uk-padding-remove-vertical uk-text-capitalize">
+        <span class="uk-align-right">
+          <span class="uk-icon-link" title="Copy To Clipboard" uk-tooltip=""><a onclick="copyElementInnerTextToClipboard('messageauthenticators-codeblock-1');" uk-icon="icon: copy; ratio: 1"></a></span>
+          <span class="uk-icon-link" title="Download" uk-tooltip=""><a onclick="window.open('https://cryptoswift.io/assets/snippets/examples/message-authenticators/1.swift');" uk-icon="icon: download; ratio: 1"></a></span>
+        </span>
+      </span>
+      <div id="messageauthenticators-codeblock-1" class="uk-accordion-content uk-margin-remove-bottom uk-margin-small-top uk-padding-remove-vertical">
+        
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="c1">// Calculate Message Authentication Code (MAC) for message</span>
+<span class="k">let</span> <span class="nv">key</span><span class="p">:</span><span class="kt">Array</span><span class="o">&lt;</span><span class="kt">UInt8</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="o">...</span><span class="p">]</span>
+
+<span class="k">try</span> <span class="nf">Poly1305</span><span class="p">(</span><span class="nv">key</span><span class="p">:</span> <span class="n">key</span><span class="p">)</span><span class="o">.</span><span class="nf">authenticate</span><span class="p">(</span><span class="n">bytes</span><span class="p">)</span>
+<span class="k">try</span> <span class="nf">HMAC</span><span class="p">(</span><span class="nv">key</span><span class="p">:</span> <span class="n">key</span><span class="p">,</span> <span class="nv">variant</span><span class="p">:</span> <span class="o">.</span><span class="n">sha256</span><span class="p">)</span><span class="o">.</span><span class="nf">authenticate</span><span class="p">(</span><span class="n">bytes</span><span class="p">)</span></code></pre></figure>
+
+      </div>
+    </li>
+  </ul>
+</div>
+
+  </div>
+</div>
+        <h2 id="hmac-based-key-derivation-function" class="uk-h1">HMAC-based Key Derivation Function</h2>
+        <div class="intro-header"></div>
+<div class="uk-grid uk-padding-remove" uk-grid>
+  <div class="uk-width-1-1">
+  
+<div id="language" class=" uk-card uk-card-default uk-box-shadow-small uk-border-rounded uk-card-body uk-padding-small uk-margin-remove" style="display: block; background-color: #efefef;">
+  <ul id="accordion-hmacbasedkeyderivationfunction-codeblock-1" class="uk-list">
+    <li class="uk-open">
+      <span class="uk-h6 uk-text-small uk-padding-remove-vertical uk-text-capitalize">
+        <span class="uk-align-right">
+          <span class="uk-icon-link" title="Copy To Clipboard" uk-tooltip=""><a onclick="copyElementInnerTextToClipboard('hmacbasedkeyderivationfunction-codeblock-1');" uk-icon="icon: copy; ratio: 1"></a></span>
+          <span class="uk-icon-link" title="Download" uk-tooltip=""><a onclick="window.open('https://cryptoswift.io/assets/snippets/examples/hmac-key-derivation/1.swift');" uk-icon="icon: download; ratio: 1"></a></span>
+        </span>
+      </span>
+      <div id="hmacbasedkeyderivationfunction-codeblock-1" class="uk-accordion-content uk-margin-remove-bottom uk-margin-small-top uk-padding-remove-vertical">
+        
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">let</span> <span class="nv">password</span><span class="p">:</span> <span class="kt">Array</span><span class="o">&lt;</span><span class="kt">UInt8</span><span class="o">&gt;</span> <span class="o">=</span> <span class="nf">Array</span><span class="p">(</span><span class="s">"s33krit"</span><span class="o">.</span><span class="n">utf8</span><span class="p">)</span>
+<span class="k">let</span> <span class="nv">salt</span><span class="p">:</span> <span class="kt">Array</span><span class="o">&lt;</span><span class="kt">UInt8</span><span class="o">&gt;</span> <span class="o">=</span> <span class="nf">Array</span><span class="p">(</span><span class="s">"nacllcan"</span><span class="o">.</span><span class="n">utf8</span><span class="p">)</span>
+
+<span class="k">try</span> <span class="nf">HKDF</span><span class="p">(</span><span class="nv">password</span><span class="p">:</span> <span class="n">password</span><span class="p">,</span> <span class="nv">salt</span><span class="p">:</span> <span class="n">salt</span><span class="p">,</span> <span class="nv">variant</span><span class="p">:</span> <span class="o">.</span><span class="n">sha256</span><span class="p">)</span><span class="o">.</span><span class="nf">calculate</span><span class="p">()</span></code></pre></figure>
+
+      </div>
+    </li>
+  </ul>
+</div>
+
+  </div>
+</div>
+        <h2 id="data-types-conversion" class="uk-h1">Data Types Conversion</h2>
+        <div class="intro-header"></div>
+<div class="uk-grid uk-padding-remove" uk-grid>
+  <div class="uk-width-1-1">
+  <p>For your convenience CryptoSwift provides two functions to easily convert array of bytes to Data and another way around:</p>
+<h5 id="data-from-bytes">Data from bytes:</h5>
+
+<div id="language" class=" uk-card uk-card-default uk-box-shadow-small uk-border-rounded uk-card-body uk-padding-small uk-margin-remove" style="display: block; background-color: #efefef;">
+  <ul id="accordion-datatypesconversion-codeblock-1" class="uk-list">
+    <li class="uk-open">
+      <span class="uk-h6 uk-text-small uk-padding-remove-vertical uk-text-capitalize">
+        <span class="uk-align-right">
+          <span class="uk-icon-link" title="Copy To Clipboard" uk-tooltip=""><a onclick="copyElementInnerTextToClipboard('datatypesconversion-codeblock-1');" uk-icon="icon: copy; ratio: 1"></a></span>
+          <span class="uk-icon-link" title="Download" uk-tooltip=""><a onclick="window.open('https://cryptoswift.io/assets/snippets/examples/data-types-conversion/1.swift');" uk-icon="icon: download; ratio: 1"></a></span>
+        </span>
+      </span>
+      <div id="datatypesconversion-codeblock-1" class="uk-accordion-content uk-margin-remove-bottom uk-margin-small-top uk-padding-remove-vertical">
+        
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">let</span> <span class="nv">data</span> <span class="o">=</span> <span class="nf">Data</span><span class="p">(</span><span class="nv">bytes</span><span class="p">:</span> <span class="p">[</span><span class="mh">0x01</span><span class="p">,</span> <span class="mh">0x02</span><span class="p">,</span> <span class="mh">0x03</span><span class="p">])</span></code></pre></figure>
+
+      </div>
+    </li>
+  </ul>
+</div>
+<h5 id="data-to-array">Data to Array<UInt8></UInt8></h5>
+
+<div id="language" class=" uk-card uk-card-default uk-box-shadow-small uk-border-rounded uk-card-body uk-padding-small uk-margin-remove" style="display: block; background-color: #efefef;">
+  <ul id="accordion-datatypesconversion-codeblock-2" class="uk-list">
+    <li class="uk-open">
+      <span class="uk-h6 uk-text-small uk-padding-remove-vertical uk-text-capitalize">
+        <span class="uk-align-right">
+          <span class="uk-icon-link" title="Copy To Clipboard" uk-tooltip=""><a onclick="copyElementInnerTextToClipboard('datatypesconversion-codeblock-2');" uk-icon="icon: copy; ratio: 1"></a></span>
+          <span class="uk-icon-link" title="Download" uk-tooltip=""><a onclick="window.open('https://cryptoswift.io/assets/snippets/examples/data-types-conversion/2.swift');" uk-icon="icon: download; ratio: 1"></a></span>
+        </span>
+      </span>
+      <div id="datatypesconversion-codeblock-2" class="uk-accordion-content uk-margin-remove-bottom uk-margin-small-top uk-padding-remove-vertical">
+        
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">let</span> <span class="nv">bytes</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">bytes</span>                     <span class="c1">// [1,2,3]</span></code></pre></figure>
+
+      </div>
+    </li>
+  </ul>
+</div>
+<h5 id="hexadecimal-encoding">Hexadecimal encoding:</h5>
+
+<div id="language" class=" uk-card uk-card-default uk-box-shadow-small uk-border-rounded uk-card-body uk-padding-small uk-margin-remove" style="display: block; background-color: #efefef;">
+  <ul id="accordion-datatypesconversion-codeblock-3" class="uk-list">
+    <li class="uk-open">
+      <span class="uk-h6 uk-text-small uk-padding-remove-vertical uk-text-capitalize">
+        <span class="uk-align-right">
+          <span class="uk-icon-link" title="Copy To Clipboard" uk-tooltip=""><a onclick="copyElementInnerTextToClipboard('datatypesconversion-codeblock-3');" uk-icon="icon: copy; ratio: 1"></a></span>
+          <span class="uk-icon-link" title="Download" uk-tooltip=""><a onclick="window.open('https://cryptoswift.io/assets/snippets/examples/data-types-conversion/3.swift');" uk-icon="icon: download; ratio: 1"></a></span>
+        </span>
+      </span>
+      <div id="datatypesconversion-codeblock-3" class="uk-accordion-content uk-margin-remove-bottom uk-margin-small-top uk-padding-remove-vertical">
+        
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">let</span> <span class="nv">bytes</span> <span class="o">=</span> <span class="kt">Array</span><span class="o">&lt;</span><span class="kt">UInt8</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">hex</span><span class="p">:</span> <span class="s">"0x010203"</span><span class="p">)</span>  <span class="c1">// [1,2,3]</span>
+<span class="k">let</span> <span class="nv">hex</span>   <span class="o">=</span> <span class="n">bytes</span><span class="o">.</span><span class="nf">toHexString</span><span class="p">()</span>            <span class="c1">// "010203"</span></code></pre></figure>
+
+      </div>
+    </li>
+  </ul>
+</div>
+<h5 id="build-bytes-out-of-string">Build bytes out of String</h5>
+
+<div id="language" class=" uk-card uk-card-default uk-box-shadow-small uk-border-rounded uk-card-body uk-padding-small uk-margin-remove" style="display: block; background-color: #efefef;">
+  <ul id="accordion-datatypesconversion-codeblock-4" class="uk-list">
+    <li class="uk-open">
+      <span class="uk-h6 uk-text-small uk-padding-remove-vertical uk-text-capitalize">
+        <span class="uk-align-right">
+          <span class="uk-icon-link" title="Copy To Clipboard" uk-tooltip=""><a onclick="copyElementInnerTextToClipboard('datatypesconversion-codeblock-4');" uk-icon="icon: copy; ratio: 1"></a></span>
+          <span class="uk-icon-link" title="Download" uk-tooltip=""><a onclick="window.open('https://cryptoswift.io/assets/snippets/examples/data-types-conversion/4.swift');" uk-icon="icon: download; ratio: 1"></a></span>
+        </span>
+      </span>
+      <div id="datatypesconversion-codeblock-4" class="uk-accordion-content uk-margin-remove-bottom uk-margin-small-top uk-padding-remove-vertical">
+        
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">let</span> <span class="nv">bytes</span><span class="p">:</span> <span class="kt">Array</span><span class="o">&lt;</span><span class="kt">UInt8</span><span class="o">&gt;</span> <span class="o">=</span> <span class="s">"password"</span><span class="o">.</span><span class="n">bytes</span>  <span class="c1">// Array("password".utf8)</span></code></pre></figure>
+
+      </div>
+    </li>
+  </ul>
+</div>
+<h5 id="base64-encoded-data">Base64 encoded data</h5>
+<p>Also… check out helpers that work with Base64 encoded data:</p>
+
+<div id="language" class=" uk-card uk-card-default uk-box-shadow-small uk-border-rounded uk-card-body uk-padding-small uk-margin-remove" style="display: block; background-color: #efefef;">
+  <ul id="accordion-datatypesconversion-codeblock-5" class="uk-list">
+    <li class="uk-open">
+      <span class="uk-h6 uk-text-small uk-padding-remove-vertical uk-text-capitalize">
+        <span class="uk-align-right">
+          <span class="uk-icon-link" title="Copy To Clipboard" uk-tooltip=""><a onclick="copyElementInnerTextToClipboard('datatypesconversion-codeblock-5');" uk-icon="icon: copy; ratio: 1"></a></span>
+          <span class="uk-icon-link" title="Download" uk-tooltip=""><a onclick="window.open('https://cryptoswift.io/assets/snippets/examples/data-types-conversion/5.swift');" uk-icon="icon: download; ratio: 1"></a></span>
+        </span>
+      </span>
+      <div id="datatypesconversion-codeblock-5" class="uk-accordion-content uk-margin-remove-bottom uk-margin-small-top uk-padding-remove-vertical">
+        
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="s">"aPf/i9th9iX+vf49eR7PYk2q7S5xmm3jkRLejgzHNJs="</span><span class="o">.</span><span class="nf">decryptBase64ToString</span><span class="p">(</span><span class="n">cipher</span><span class="p">)</span>
+<span class="s">"aPf/i9th9iX+vf49eR7PYk2q7S5xmm3jkRLejgzHNJs="</span><span class="o">.</span><span class="nf">decryptBase64</span><span class="p">(</span><span class="n">cipher</span><span class="p">)</span>
+<span class="n">bytes</span><span class="o">.</span><span class="nf">toBase64</span><span class="p">()</span></code></pre></figure>
+
+      </div>
+    </li>
+  </ul>
+</div>
+
+  </div>
+</div>
+        <h2 id="data-padding" class="uk-h1">Data Padding</h2>
+        <div class="intro-header"></div>
+<div class="uk-grid uk-padding-remove" uk-grid>
+  <div class="uk-width-1-1">
+  <p>Some content-encryption algorithms assume the input length is a multiple of k octets, where k is greater than one. For such algorithms, the input shall be padded.</p>
+
+<div id="language" class=" uk-card uk-card-default uk-box-shadow-small uk-border-rounded uk-card-body uk-padding-small uk-margin-remove" style="display: block; background-color: #efefef;">
+  <ul id="accordion-datapadding-codeblock-1" class="uk-list">
+    <li class="uk-open">
+      <span class="uk-h6 uk-text-small uk-padding-remove-vertical uk-text-capitalize">
+        <span class="uk-align-right">
+          <span class="uk-icon-link" title="Copy To Clipboard" uk-tooltip=""><a onclick="copyElementInnerTextToClipboard('datapadding-codeblock-1');" uk-icon="icon: copy; ratio: 1"></a></span>
+          <span class="uk-icon-link" title="Download" uk-tooltip=""><a onclick="window.open('https://cryptoswift.io/assets/snippets/examples/data-padding/1.swift');" uk-icon="icon: download; ratio: 1"></a></span>
+        </span>
+      </span>
+      <div id="datapadding-codeblock-1" class="uk-accordion-content uk-margin-remove-bottom uk-margin-small-top uk-padding-remove-vertical">
+        
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="kt">Padding</span><span class="o">.</span><span class="n">pkcs7</span><span class="o">.</span><span class="nf">add</span><span class="p">(</span><span class="nv">to</span><span class="p">:</span> <span class="n">bytes</span><span class="p">,</span> <span class="nv">blockSize</span><span class="p">:</span> <span class="kt">AES</span><span class="o">.</span><span class="n">blockSize</span><span class="p">)</span></code></pre></figure>
+
+      </div>
+    </li>
+  </ul>
+</div>
+
+  </div>
+</div>
+        <h2 id="ciphers-advanced-usage" class="uk-h1">Ciphers: Advanced Usage</h2>
+        <div class="intro-header"></div>
+<div class="uk-grid uk-padding-remove" uk-grid>
+  <div class="uk-width-1-1">
+  <h5 id="aes-advanced-usaged">AES Advanced Usaged</h5>
+
+<div id="language" class=" uk-card uk-card-default uk-box-shadow-small uk-border-rounded uk-card-body uk-padding-small uk-margin-remove" style="display: block; background-color: #efefef;">
+  <ul id="accordion-ciphersadvancedusage-codeblock-1" class="uk-list">
+    <li class="uk-open">
+      <span class="uk-h6 uk-text-small uk-padding-remove-vertical uk-text-capitalize">
+        <span class="uk-align-right">
+          <span class="uk-icon-link" title="Copy To Clipboard" uk-tooltip=""><a onclick="copyElementInnerTextToClipboard('ciphersadvancedusage-codeblock-1');" uk-icon="icon: copy; ratio: 1"></a></span>
+          <span class="uk-icon-link" title="Download" uk-tooltip=""><a onclick="window.open('https://cryptoswift.io/assets/snippets/examples/ciphers/7.swift');" uk-icon="icon: download; ratio: 1"></a></span>
+        </span>
+      </span>
+      <div id="ciphersadvancedusage-codeblock-1" class="uk-accordion-content uk-margin-remove-bottom uk-margin-small-top uk-padding-remove-vertical">
+        
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">let</span> <span class="nv">input</span><span class="p">:</span> <span class="kt">Array</span><span class="o">&lt;</span><span class="kt">UInt8</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">]</span>
+
+<span class="k">let</span> <span class="nv">key</span><span class="p">:</span> <span class="kt">Array</span><span class="o">&lt;</span><span class="kt">UInt8</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[</span><span class="mh">0x00</span><span class="p">,</span><span class="mh">0x00</span><span class="p">,</span><span class="mh">0x00</span><span class="p">,</span><span class="mh">0x00</span><span class="p">,</span><span class="mh">0x00</span><span class="p">,</span><span class="mh">0x00</span><span class="p">,</span><span class="mh">0x00</span><span class="p">,</span><span class="mh">0x00</span><span class="p">,</span><span class="mh">0x00</span><span class="p">,</span><span class="mh">0x00</span><span class="p">,</span><span class="mh">0x00</span><span class="p">,</span><span class="mh">0x00</span><span class="p">,</span><span class="mh">0x00</span><span class="p">,</span><span class="mh">0x00</span><span class="p">,</span><span class="mh">0x00</span><span class="p">,</span><span class="mh">0x00</span><span class="p">]</span>
+<span class="k">let</span> <span class="nv">iv</span><span class="p">:</span> <span class="kt">Array</span><span class="o">&lt;</span><span class="kt">UInt8</span><span class="o">&gt;</span> <span class="o">=</span> <span class="kt">AES</span><span class="o">.</span><span class="nf">randomIV</span><span class="p">(</span><span class="kt">AES</span><span class="o">.</span><span class="n">blockSize</span><span class="p">)</span>
+
+<span class="nf">do</span> <span class="p">{</span>
+  <span class="k">let</span> <span class="nv">encrypted</span> <span class="o">=</span> <span class="k">try</span> <span class="nf">AES</span><span class="p">(</span><span class="nv">key</span><span class="p">:</span> <span class="n">key</span><span class="p">,</span> <span class="nv">blockMode</span><span class="p">:</span> <span class="o">.</span><span class="nf">CBC</span><span class="p">(</span><span class="nv">iv</span><span class="p">:</span> <span class="n">iv</span><span class="p">),</span> <span class="nv">padding</span><span class="p">:</span> <span class="o">.</span><span class="n">pkcs7</span><span class="p">)</span><span class="o">.</span><span class="nf">encrypt</span><span class="p">(</span><span class="n">input</span><span class="p">)</span>
+  <span class="k">let</span> <span class="nv">decrypted</span> <span class="o">=</span> <span class="k">try</span> <span class="nf">AES</span><span class="p">(</span><span class="nv">key</span><span class="p">:</span> <span class="n">key</span><span class="p">,</span> <span class="nv">blockMode</span><span class="p">:</span> <span class="o">.</span><span class="nf">CBC</span><span class="p">(</span><span class="nv">iv</span><span class="p">:</span> <span class="n">iv</span><span class="p">),</span> <span class="nv">padding</span><span class="p">:</span> <span class="o">.</span><span class="n">pkcs7</span><span class="p">)</span><span class="o">.</span><span class="nf">decrypt</span><span class="p">(</span><span class="n">encrypted</span><span class="p">)</span>
+<span class="p">}</span> <span class="nf">catch</span> <span class="p">{</span>
+  <span class="nf">print</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+<span class="p">}</span>    </code></pre></figure>
+
+      </div>
+    </li>
+  </ul>
+</div>
+
+<h5 id="aes-without-data-padding">AES without data padding</h5>
+
+<div id="language" class=" uk-card uk-card-default uk-box-shadow-small uk-border-rounded uk-card-body uk-padding-small uk-margin-remove" style="display: block; background-color: #efefef;">
+  <ul id="accordion-ciphersadvancedusage-codeblock-2" class="uk-list">
+    <li class="uk-open">
+      <span class="uk-h6 uk-text-small uk-padding-remove-vertical uk-text-capitalize">
+        <span class="uk-align-right">
+          <span class="uk-icon-link" title="Copy To Clipboard" uk-tooltip=""><a onclick="copyElementInnerTextToClipboard('ciphersadvancedusage-codeblock-2');" uk-icon="icon: copy; ratio: 1"></a></span>
+          <span class="uk-icon-link" title="Download" uk-tooltip=""><a onclick="window.open('https://cryptoswift.io/assets/snippets/examples/ciphers/8.swift');" uk-icon="icon: download; ratio: 1"></a></span>
+        </span>
+      </span>
+      <div id="ciphersadvancedusage-codeblock-2" class="uk-accordion-content uk-margin-remove-bottom uk-margin-small-top uk-padding-remove-vertical">
+        
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">let</span> <span class="nv">input</span><span class="p">:</span> <span class="kt">Array</span><span class="o">&lt;</span><span class="kt">UInt8</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">]</span>
+<span class="k">let</span> <span class="nv">encrypted</span><span class="p">:</span> <span class="kt">Array</span><span class="o">&lt;</span><span class="kt">UInt8</span><span class="o">&gt;</span> <span class="o">=</span> <span class="k">try!</span> <span class="nf">AES</span><span class="p">(</span><span class="nv">key</span><span class="p">:</span> <span class="nf">Array</span><span class="p">(</span><span class="s">"secret0key000000"</span><span class="o">.</span><span class="n">utf8</span><span class="p">),</span> <span class="nv">blockMode</span><span class="p">:</span> <span class="o">.</span><span class="nf">CBC</span><span class="p">(</span><span class="nv">iv</span><span class="p">:</span> <span class="nf">Array</span><span class="p">(</span><span class="s">"0123456789012345"</span><span class="o">.</span><span class="n">utf8</span><span class="p">)),</span> <span class="nv">padding</span><span class="p">:</span> <span class="o">.</span><span class="n">noPadding</span><span class="p">)</span><span class="o">.</span><span class="nf">encrypt</span><span class="p">(</span><span class="n">input</span><span class="p">)</span></code></pre></figure>
+
+      </div>
+    </li>
+  </ul>
+</div>
+
+<h5 id="using-convenience-extensions">Using convenience extensions</h5>
+
+<div id="language" class=" uk-card uk-card-default uk-box-shadow-small uk-border-rounded uk-card-body uk-padding-small uk-margin-remove" style="display: block; background-color: #efefef;">
+  <ul id="accordion-ciphersadvancedusage-codeblock-3" class="uk-list">
+    <li class="uk-open">
+      <span class="uk-h6 uk-text-small uk-padding-remove-vertical uk-text-capitalize">
+        <span class="uk-align-right">
+          <span class="uk-icon-link" title="Copy To Clipboard" uk-tooltip=""><a onclick="copyElementInnerTextToClipboard('ciphersadvancedusage-codeblock-3');" uk-icon="icon: copy; ratio: 1"></a></span>
+          <span class="uk-icon-link" title="Download" uk-tooltip=""><a onclick="window.open('https://cryptoswift.io/assets/snippets/examples/ciphers/9.swift');" uk-icon="icon: download; ratio: 1"></a></span>
+        </span>
+      </span>
+      <div id="ciphersadvancedusage-codeblock-3" class="uk-accordion-content uk-margin-remove-bottom uk-margin-small-top uk-padding-remove-vertical">
+        
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">let</span> <span class="nv">plain</span> <span class="o">=</span> <span class="nf">Data</span><span class="p">(</span><span class="nv">bytes</span><span class="p">:</span> <span class="p">[</span><span class="mh">0x01</span><span class="p">,</span> <span class="mh">0x02</span><span class="p">,</span> <span class="mh">0x03</span><span class="p">])</span>
+<span class="k">let</span> <span class="nv">encrypted</span> <span class="o">=</span> <span class="k">try!</span> <span class="n">plain</span><span class="o">.</span><span class="nf">encrypt</span><span class="p">(</span><span class="nf">ChaCha20</span><span class="p">(</span><span class="nv">key</span><span class="p">:</span> <span class="n">key</span><span class="p">,</span> <span class="nv">iv</span><span class="p">:</span> <span class="n">iv</span><span class="p">))</span>
+<span class="k">let</span> <span class="nv">decrypted</span> <span class="o">=</span> <span class="k">try!</span> <span class="n">encrypted</span><span class="o">.</span><span class="nf">decrypt</span><span class="p">(</span><span class="nf">ChaCha20</span><span class="p">(</span><span class="nv">key</span><span class="p">:</span> <span class="n">key</span><span class="p">,</span> <span class="nv">iv</span><span class="p">:</span> <span class="n">iv</span><span class="p">))</span></code></pre></figure>
+
+      </div>
+    </li>
+  </ul>
+</div>
+
+  </div>
+</div>
+        <h2 id="calculate-digest" class="uk-h1">Calculate Digest</h2>
+        <div class="intro-header"></div>
+<div class="uk-grid uk-padding-remove" uk-grid>
+  <div class="uk-width-1-1">
+  <p>Hashing a data or array of bytes (aka <code class="highlighter-rouge">Array&lt;UInt8&gt;</code>)</p>
+
+<div id="language" class=" uk-card uk-card-default uk-box-shadow-small uk-border-rounded uk-card-body uk-padding-small uk-margin-remove" style="display: block; background-color: #efefef;">
+  <ul id="accordion-calculatedigest-codeblock-1" class="uk-list">
+    <li class="uk-open">
+      <span class="uk-h6 uk-text-small uk-padding-remove-vertical uk-text-capitalize">
+        <span class="uk-align-right">
+          <span class="uk-icon-link" title="Copy To Clipboard" uk-tooltip=""><a onclick="copyElementInnerTextToClipboard('calculatedigest-codeblock-1');" uk-icon="icon: copy; ratio: 1"></a></span>
+          <span class="uk-icon-link" title="Download" uk-tooltip=""><a onclick="window.open('https://cryptoswift.io/assets/snippets/examples/calculate-digest/1.swift');" uk-icon="icon: download; ratio: 1"></a></span>
+        </span>
+      </span>
+      <div id="calculatedigest-codeblock-1" class="uk-accordion-content uk-margin-remove-bottom uk-margin-small-top uk-padding-remove-vertical">
+        
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="cm">/* Hash struct usage */</span>
+<span class="k">let</span> <span class="nv">bytes</span><span class="p">:</span><span class="kt">Array</span><span class="o">&lt;</span><span class="kt">UInt8</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[</span><span class="mh">0x01</span><span class="p">,</span> <span class="mh">0x02</span><span class="p">,</span> <span class="mh">0x03</span><span class="p">]</span>
+<span class="k">let</span> <span class="nv">digest</span> <span class="o">=</span> <span class="n">input</span><span class="o">.</span><span class="nf">md5</span><span class="p">()</span>
+<span class="k">let</span> <span class="nv">digest</span> <span class="o">=</span> <span class="kt">Digest</span><span class="o">.</span><span class="nf">md5</span><span class="p">(</span><span class="n">bytes</span><span class="p">)</span>
+<span class="k">let</span> <span class="nv">data</span> <span class="o">=</span> <span class="nf">Data</span><span class="p">(</span><span class="nv">bytes</span><span class="p">:</span> <span class="p">[</span><span class="mh">0x01</span><span class="p">,</span> <span class="mh">0x02</span><span class="p">,</span> <span class="mh">0x03</span><span class="p">])</span>
+
+<span class="k">let</span> <span class="nv">hash</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="nf">md5</span><span class="p">()</span>
+<span class="k">let</span> <span class="nv">hash</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="nf">sha1</span><span class="p">()</span>
+<span class="k">let</span> <span class="nv">hash</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="nf">sha224</span><span class="p">()</span>
+<span class="k">let</span> <span class="nv">hash</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="nf">sha256</span><span class="p">()</span>
+<span class="k">let</span> <span class="nv">hash</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="nf">sha384</span><span class="p">()</span>
+<span class="k">let</span> <span class="nv">hash</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="nf">sha512</span><span class="p">()</span>    
+<span class="nf">do</span> <span class="p">{</span>
+  <span class="k">var</span> <span class="nv">digest</span> <span class="o">=</span> <span class="nf">MD5</span><span class="p">()</span>
+  <span class="k">let</span> <span class="nv">partial1</span> <span class="o">=</span> <span class="k">try</span> <span class="n">digest</span><span class="o">.</span><span class="nf">update</span><span class="p">(</span><span class="nv">withBytes</span><span class="p">:</span> <span class="p">[</span><span class="mh">0x31</span><span class="p">,</span> <span class="mh">0x32</span><span class="p">])</span>
+  <span class="k">let</span> <span class="nv">partial2</span> <span class="o">=</span> <span class="k">try</span> <span class="n">digest</span><span class="o">.</span><span class="nf">update</span><span class="p">(</span><span class="nv">withBytes</span><span class="p">:</span> <span class="p">[</span><span class="mh">0x33</span><span class="p">])</span>
+  <span class="k">let</span> <span class="nv">result</span> <span class="o">=</span> <span class="k">try</span> <span class="n">digest</span><span class="o">.</span><span class="nf">finish</span><span class="p">()</span>
+<span class="p">}</span> <span class="nf">catch</span> <span class="p">{</span> <span class="p">}</span></code></pre></figure>
+
+      </div>
+    </li>
+  </ul>
+</div>
+<p>Hashing a String and printing result</p>
+
+<div id="language" class=" uk-card uk-card-default uk-box-shadow-small uk-border-rounded uk-card-body uk-padding-small uk-margin-remove" style="display: block; background-color: #efefef;">
+  <ul id="accordion-calculatedigest-codeblock-2" class="uk-list">
+    <li class="uk-open">
+      <span class="uk-h6 uk-text-small uk-padding-remove-vertical uk-text-capitalize">
+        <span class="uk-align-right">
+          <span class="uk-icon-link" title="Copy To Clipboard" uk-tooltip=""><a onclick="copyElementInnerTextToClipboard('calculatedigest-codeblock-2');" uk-icon="icon: copy; ratio: 1"></a></span>
+          <span class="uk-icon-link" title="Download" uk-tooltip=""><a onclick="window.open('https://cryptoswift.io/assets/snippets/examples/calculate-digest/2.swift');" uk-icon="icon: download; ratio: 1"></a></span>
+        </span>
+      </span>
+      <div id="calculatedigest-codeblock-2" class="uk-accordion-content uk-margin-remove-bottom uk-margin-small-top uk-padding-remove-vertical">
+        
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">let</span> <span class="nv">hash</span> <span class="o">=</span> <span class="s">"123"</span><span class="o">.</span><span class="nf">md5</span><span class="p">()</span> <span class="c1">// "123".bytes.md5()</span></code></pre></figure>
+
+      </div>
+    </li>
+  </ul>
+</div>
+
+  </div>
+</div>
+        <h2 id="calculate-crc" class="uk-h1">Calculate CRC</h2>
+        <div class="intro-header"></div>
+<div class="uk-grid uk-padding-remove" uk-grid>
+  <div class="uk-width-1-1">
+  
+<div id="language" class=" uk-card uk-card-default uk-box-shadow-small uk-border-rounded uk-card-body uk-padding-small uk-margin-remove" style="display: block; background-color: #efefef;">
+  <ul id="accordion-calculatecrc-codeblock-1" class="uk-list">
+    <li class="uk-open">
+      <span class="uk-h6 uk-text-small uk-padding-remove-vertical uk-text-capitalize">
+        <span class="uk-align-right">
+          <span class="uk-icon-link" title="Copy To Clipboard" uk-tooltip=""><a onclick="copyElementInnerTextToClipboard('calculatecrc-codeblock-1');" uk-icon="icon: copy; ratio: 1"></a></span>
+          <span class="uk-icon-link" title="Download" uk-tooltip=""><a onclick="window.open('https://cryptoswift.io/assets/snippets/examples/calculate-crc/1.swift');" uk-icon="icon: download; ratio: 1"></a></span>
+        </span>
+      </span>
+      <div id="calculatecrc-codeblock-1" class="uk-accordion-content uk-margin-remove-bottom uk-margin-small-top uk-padding-remove-vertical">
+        
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="n">bytes</span><span class="o">.</span><span class="nf">crc16</span><span class="p">()</span>
+<span class="n">data</span><span class="o">.</span><span class="nf">crc16</span><span class="p">()</span>
+
+<span class="n">bytes</span><span class="o">.</span><span class="nf">crc32</span><span class="p">()</span>
+<span class="n">data</span><span class="o">.</span><span class="nf">crc32</span><span class="p">()</span></code></pre></figure>
+
+      </div>
+    </li>
+  </ul>
+</div>
+
+  </div>
+</div>
+        </ul>
+    </div>
+  </div>
+</div>
+<div id="contribute-modal" uk-modal>
+  <div class="uk-modal-dialog">
+    <button class="uk-modal-close-default" type="button" uk-close></button>
+    <div class="uk-modal-header">
+      <h2 class="uk-modal-title">Contributing to the CryptoSwift Project</h2>
+    </div>
+    <div class="mod-modal-body uk-modal-body uk-card uk-card-secondary uk-card-small"><div class="uk-card-body">
+  <h2>Pull Requests</h2>
+  <p class="uk-text-bold">If you want to contribute, please be sure to submit your pull requests against the <a href="https://github.com/krzyzanowskim/CryptoSwift/tree/develop">develop branch</a></p>.
+  <h2 class="uk-margin-remove-top">Latest Development Version</h2>
+  <p class="uk-text-bold">For the latest version, please check <a href="https://github.com/krzyzanowskim/CryptoSwift/tree/develop">develop branch</a>. Changes from this branch will be merged into the master branch at some point.</p>
+</div>
+    </div>
+  </div>
+</div>
+<div id="donation-modal" uk-modal>
+  <div class="uk-modal-dialog">
+    <button class="uk-modal-close-default" type="button" uk-close></button>
+    <div class="uk-modal-header">
+      <h2 class="uk-modal-title">Donate to the CryptoSwift Project</h2>
+    </div>
+    <div class="mod-modal-body uk-modal-body uk-card uk-card-secondary uk-card-small"><div class="uk-card-body">
+<div class="mod-modal-body uk-card uk-card-small uk-padding-remove uk-margin-remove uk-grid-collapse uk-child-width-1-1@s uk-margin-remove" uk-grid>
+  <div class="uk-card-header">
+    <div class="uk-grid-small uk-flex-middle" uk-grid>
+      <div class="uk-width-auto">
+        <img class="uk-border-circle" width="70" height="70" src="/assets/img/profile.jpg">
+      </div>
+      <div class="uk-width-expand">
+        <h1 class="uk-card-title uk-margin-remove-bottom">Marcin Krzyżanowski <span class="uk-link-muted" uk-icon="icon: speaker; ratio: 1.5;" onclick="$('#marcinkrzyżanowski-player').get(0).play()" title="Pronunciation" uk-tooltip></span></h1>
+        <table>
+          <thead>
+            <tr class="uk-margin-remove-bottom uk-padding-remove-bottom">
+              <th class="uk-width-1-6"></th>
+              <th class="uk-width-expand"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <span class="mod-donation-icon" uk-icon="icon: mail"></span>
+              </td>
+              <td>
+                <a class="uk-link-muted uk-text-small uk-text-bold href="mailto:marcin@krzyzanowskim.com?subject=Donation" title="Email me about donation questions" uk-tooltip>marcin@krzyzanowskim.com</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="uk-card-footer">
+    <p class="uk-light"><a class="mod-donation-button-donate uk-button uk-button-danger uk-button-small uk-text-bold uk-border-rounded" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=92Z6U3LBHF9J4" rel="nofollow" target="_blank">Donate</a><span class="uk-text-bold">&nbsp;&nbsp;to make the CryptoSwift awesome! Thank you.</span></p>
+  </div>
+</div>
+</div>
+    </div>
+  </div>
+</div>
+<div id="download-modal" uk-modal>
+  <div class="uk-modal-dialog">
+    <button class="uk-modal-close-default" type="button" uk-close></button>
+    <div class="uk-modal-header">
+      <h2 class="uk-modal-title">Download CryptoSwift</h2>
+    </div>
+    <div class="mod-modal-body uk-modal-body uk-card uk-card-secondary uk-card-small">
+<div class="uk-card-body">
+  <ul uk-tab>
+    <li><a class="uk-text-bold" href="#">Download</a></li>
+    <li><a class="mod-download-release-notes-title uk-text-bold" href="#">Release Notes</a></li>
+  </ul>
+  <ul class="uk-switcher uk-margin">
+    <li>
+      <table class="mod-download-release-table uk-table uk-table-small">
+        <thead>
+          <tr class="uk-margin-remove-bottom uk-padding-remove-bottom">
+            <th width="80%"></th>
+            <th width="20%"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="uk-text-bold">
+              <p class="mod-download-zip-text uk-light">Source code for </p>
+            </td>
+            <td>
+              <a class="mod-download-zip uk-button uk-button-default uk-border-rounded" uk-icon="icon: download; ratio: 1;" title="Download source code (zip)" uk-tooltip onclick="UIkit.modal('#download-modal').hide();" download></a>
+            </td>
+          </tr>
+          <tr>
+            <td class="uk-text-bold">
+              <p class="mod-download-tar-text uk-light">Source code for </p>
+            </td>
+            <td>
+              <a class="mod-download-tar uk-button uk-button-default uk-border-rounded" uk-icon="icon: download; ratio: 1;" title="Download source code (tar.gz)" uk-tooltip onclick="UIkit.modal('#download-modal').hide();" download></a>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2" class="uk-text-bold">
+              <p class="uk-light uk-text-small">Alternatively follow <a href="https://github.com/krzyzanowskim/CryptoSwift/releases" target="_blank" title="CryptoSwift releases">this link for a comprehensive listing of all of CryptoSwift releases</a>, including older release notes.</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </li>
+    <li>
+      <div class="uk-card-header">
+        <div class="mod-download-release-notes uk-text-small">...</div>
+      </div>
+    </li>
+  </ul>
+</div>
+<div class="uk-card-header">
+  <h3 class="uk-text-center uk-margin-remove-bottom">Clone this project</h3>
+  <table class="mod-download-clone-table uk-table uk-table-small uk-margin-remove-top">
+    <thead>
+      <tr class="uk-margin-remove-bottom uk-padding-remove-bottom">
+        <th width="80%"></th>
+        <th width="20%"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="uk-text-bold">
+          Clone with HTTPS<br>
+          <span class="uk-text-small">Use Git or checkout with SVN using the web URL.</span>
+        </td>
+        <td>
+          <button class="uk-button uk-button-default uk-border-rounded" onclick="copyTextToClipboard('https://github.com/krzyzanowskim/CryptoSwift.git'); UIkit.modal('#download-modal').hide();" uk-icon="icon: copy; ratio: 1;" title="Copy URL for HTTPS" uk-tooltip></button>
+        </td>
+      </tr>
+      <tr>
+        <td class="uk-text-bold">
+          Clone with SSH<br>
+          <span class="uk-text-small">Use a SSH key and passphrase from account.</span>
+        </td>
+        <td>
+          <button class="uk-button uk-button-default uk-border-rounded" onclick="copyTextToClipboard('git@github.com:krzyzanowskim/CryptoSwift.git'); UIkit.modal('#download-modal').hide();" uk-icon="icon: copy; ratio: 1;" title="Copy URL for SSH" uk-tooltip></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>        
+</div>
+<div class="uk-card-footer">
+<div class="mod-modal-body uk-card uk-card-small uk-padding-remove uk-margin-remove uk-grid-collapse uk-child-width-1-1@s uk-margin-remove" uk-grid>
+  <div class="uk-card-header">
+    <div class="uk-grid-small uk-flex-middle" uk-grid>
+      <div class="uk-width-auto">
+        <img class="uk-border-circle" width="70" height="70" src="/assets/img/profile.jpg">
+      </div>
+      <div class="uk-width-expand">
+        <h1 class="uk-card-title uk-margin-remove-bottom">Marcin Krzyżanowski <span class="uk-link-muted" uk-icon="icon: speaker; ratio: 1.5;" onclick="$('#marcinkrzyżanowski-player').get(0).play()" title="Pronunciation" uk-tooltip></span></h1>
+        <table>
+          <thead>
+            <tr class="uk-margin-remove-bottom uk-padding-remove-bottom">
+              <th class="uk-width-1-6"></th>
+              <th class="uk-width-expand"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <span class="mod-donation-icon" uk-icon="icon: mail"></span>
+              </td>
+              <td>
+                <a class="uk-link-muted uk-text-small uk-text-bold href="mailto:marcin@krzyzanowskim.com?subject=Donation" title="Email me about donation questions" uk-tooltip>marcin@krzyzanowskim.com</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="uk-card-footer">
+    <p class="uk-light"><a class="mod-donation-button-donate uk-button uk-button-danger uk-button-small uk-text-bold uk-border-rounded" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=92Z6U3LBHF9J4" rel="nofollow" target="_blank">Donate</a><span class="uk-text-bold">&nbsp;&nbsp;to make the CryptoSwift awesome! Thank you.</span></p>
+  </div>
+</div>
+</div>
+    </div>
+  </div>
+</div>
+<div id="license-modal" uk-modal>
+  <div class="uk-modal-dialog">
+    <button class="uk-modal-close-default" type="button" uk-close></button>
+    <div class="uk-modal-header">
+      <h2 class="uk-modal-title">License</h2>
+    </div>
+    <div class="mod-modal-body uk-modal-body uk-card uk-card-secondary uk-card-small"><div class="uk-card-body">
+  <p class="uk-text-bold">Copyright (C) 2014-2017</p>
+  <p class="uk-text-bold">This software is provided 'as-is', without any express or implied warranty.</p>
+  <p class="uk-text-bold">In no event will the authors be held liable for any damages arising from the use of this software. </p>
+  <p class="uk-text-bold">Permission is granted to anyone to use this software for any purpose, including commercial applications, and to alter it and redistribute it freely, subject to the following restrictions:</p>
+  <ul>
+    <li class="uk-text-bold">The origin of this software must not be misrepresented; you must not claim that you wrote the original software. If you use this software in a product, an acknowledgment in the product documentation is required.</li>
+    <li class="uk-text-bold">Altered source versions must be plainly marked as such, and must not be misrepresented as being the original software.</li>
+    <li class="uk-text-bold">This notice may not be removed or altered from any source or binary distribution.</li>
+  </ul>
+</div>
+<div class="uk-card-footer">
+  <table>
+    <thead>
+      <tr class="uk-margin-remove-bottom uk-padding-remove-bottom">
+        <th class="uk-width-1-6"></th>
+        <th class="uk-width-expand"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <span uk-icon="icon: mail"></span>
+        </td>
+        <td>
+          <a class="uk-link-muted uk-text-bold" href="mailto:marcin@krzyzanowskim.com?subject=License" title="Email me about license questions" uk-tooltip>marcin@krzyzanowskim.com</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+      </div>
+  <br>
+<footer class="mod-footer uk-card uk-card-secondary uk-card-body uk-card-small">
+  <nav class="mod-footer-navbar uk-navbar-container uk-navbar-transparent uk-margin-remove-vertical uk-padding-remove-vertical" uk-navbar>
+    <div class="uk-navbar-center">
+      <a class="uk-navbar-item uk-text-lowercase uk-link-muted" href="https://cryptoswift.io">
+        <h2 class="mod-footer-title"><span uk-icon="icon: copyright"></span> CryptoSwift <time>January 2018</time></h2>
+      </a>
+    </div>
+  </nav>
+  <a id="bottom" style="visibility: hidden;">bottom</a>
+</footer>
+      <a class="mod-nav-icon mod-to-top uk-card uk-card-secondary uk-card-body uk-padding-small uk-border-rounded" href="#top" uk-scroll title="To Top" uk-tooltip uk-icon="icon: chevron-up; ratio: 1.2;"></a>
+    </div>
+<div id="offcanvas-push" uk-offcanvas="mode: push; flip: true;">
+  <div class="mod-offcanvas-menu uk-offcanvas-bar uk-card uk-card-small uk-card-default uk-card-body">
+    <button class="mod-offcanvas-icon uk-offcanvas-close" type="button" uk-close></button>
+    <div class="uk-h4 uk-text-center uk-margin-remove-vertical uk-text-muted uk-text-lowercase uk-navbar-item" style="font-weight: 400;">
+      <span class="mod-offcanvas-title-left" style="color: #FBFED4">Crypto</span>
+      <span class="mod-offcanvas-title-right uk-text-bold" style="color: #FFD500;">Swift</span>
+    </div>        
+    <ul uk-tab="active: 0;">
+      <li><a class="uk-text-bold" href="#"><span class="mod-offcanvas-icon" uk-icon="icon: home; ratio: 1.4;" title="Main menu" uk-tooltip></a></li>
+      <li><a class="uk-text-bold" href="#"><span class="mod-offcanvas-icon" uk-icon="icon: list; ratio: 1.4;" title="Table of Contents" uk-tooltip></a></li>
+      <li><a class="uk-text-bold" href="#"><span class="mod-offcanvas-icon" uk-icon="icon: more; ratio: 1.4;" title="More..." uk-tooltip></span></a></li>
+    </ul>
+    <ul class="uk-switcher uk-margin">
+      <li>
+        <div class="uk-flex uk-flex-column">
+          <ul class="uk-nav uk-nav-primary uk-nav-left uk-nav-parent-icon" uk-nav>
+                  <li class="mod-offcanvas-header uk-nav-header uk-text-bold">Main</li>
+    <li><a class="mod-offcanvas-nav-item" href="#download-modal" uk-toggle title="Download this project" uk-tooltip><span class="uk-margin-small-right" uk-icon="icon: download"></span> Download</a></li>
+    <li><a class="mod-offcanvas-nav-item" href="#donation-modal" uk-toggle title="Support this project" uk-tooltip><span class="uk-margin-small-right" uk-icon="icon: donation"></span> Donate</a></li>
+    <li class="uk-parent">
+      <a class="mod-offcanvas-nav-item" href="#"><span class="uk-margin-small-right" uk-icon="icon: social"></span> Share Links</a>
+      <ul class="uk-nav-sub">
+      <li><a class="mod-offcanvas-nav-subitem" href="https://twitter.com/intent/tweet?text=CryptoSwift : Cryptographic Algorithms Implemented in <a href='http://swift.org' target='_blank'>Swift</a>&url=https://cryptoswift.io/" title="Share this on Twitter" uk-tooltip><span class="uk-margin-small-right" uk-icon="icon: twitter;"></span> Twitter</a></li>
+    
+      <li><a class="mod-offcanvas-nav-subitem" href="https://www.facebook.com/sharer/sharer.php?u=https://cryptoswift.io/&p[title]=CryptoSwift : Cryptographic Algorithms Implemented in <a href='http://swift.org' target='_blank'>Swift</a>" title="Share this on Facebook" uk-tooltip><span class="uk-margin-small-right" uk-icon="icon: facebook;"></span> Facebook</a></li>
+    
+      <li><a class="mod-offcanvas-nav-subitem" href="https://plus.google.com/share?url=https://cryptoswift.io/CryptoSwift : Cryptographic Algorithms Implemented in <a href='http://swift.org' target='_blank'>Swift</a>" title="Share this on Google" uk-tooltip><span class="uk-margin-small-right" uk-icon="icon: google-plus;"></span> Google</a></li>
+    
+      <li><a class="mod-offcanvas-nav-subitem" href="https://www.linkedin.com/shareArticle?mini=true&url=https://cryptoswift.io/&title=CryptoSwift : Cryptographic Algorithms Implemented in <a href='http://swift.org' target='_blank'>Swift</a>" title="Share this on Linkedin" uk-tooltip><span class="uk-margin-small-right" uk-icon="icon: linkedin;"></span> Linkedin</a></li>
+    
+    <li><a class="mod-offcanvas-nav-subitem" href="mailto:insert%20your%20email%20address?subject=CryptoSwift&nbsp;:&nbsp;Cryptographic Algorithms Implemented in <a href='http://swift.org' target='_blank'>Swift</a>&amp;body=https://cryptoswift.io/" title="Share this on email" uk-tooltip><span class="uk-margin-small-right" uk-icon="icon: mail;"></span> email</a></li>
+      <li><a class="mod-offcanvas-nav-subitem" href="http://pinterest.com/pin/create/button/?url=https://cryptoswift.io/&description=CryptoSwift : Cryptographic Algorithms Implemented in <a href='http://swift.org' target='_blank'>Swift</a>" title="Share this on Pinterest" uk-tooltip><span class="uk-margin-small-right" uk-icon="icon: pinterest;"></span> Pinterest</a></li>
+    
+      <li><a class="mod-offcanvas-nav-subitem" href="http://tumblr.com/widgets/share/tool?canonicalUrl=https://cryptoswift.io/&title=CryptoSwift : Cryptographic Algorithms Implemented in <a href='http://swift.org' target='_blank'>Swift</a>" title="Share this on Tumblr" uk-tooltip><span class="uk-margin-small-right" uk-icon="icon: tumblr;"></span> Tumblr</a></li>
+    
+      <li><a class="mod-offcanvas-nav-subitem" href="http://www.reddit.com/submit?url=https://cryptoswift.io/&title=CryptoSwift : Cryptographic Algorithms Implemented in <a href='http://swift.org' target='_blank'>Swift</a>" title="Share this on Reddit" uk-tooltip><span class="uk-margin-small-right" uk-icon="icon: reddit;"></span> Reddit</a></li>
+    
+      </ul>
+    </li>
+                  <li class="mod-offcanvas-header uk-nav-header uk-text-bold">Other Links</li>
+<li>
+  <a class="mod-offcanvas-nav-item" href="https://github.com/krzyzanowskim/CryptoSwift" target="_blank"><span class="uk-margin-small-right" uk-icon="icon: github"></span> Github Repository</a>
+</li>
+<li>
+  <a class="mod-offcanvas-nav-item" href="https://github.com/krzyzanowskim/CryptoSwift/issues" target="_blank"><span class="uk-margin-small-right" uk-icon="icon: bug"></span> Issues / Requests</a>
+</li>
+<li>
+  <a class="mod-offcanvas-nav-item" href="https://github.com/krzyzanowskim/CryptoSwift/blob/master/CHANGELOG" target="_blank"><span class="uk-margin-small-right" uk-icon="icon: file"></span> Change Log</a>
+</li>
+<li>
+  <a class="mod-offcanvas-nav-item" href="http://krzyzanowskim.com" target="_blank"><span class="uk-margin-small-right" uk-icon="icon: user"></span> Who is Marcin?</a>
+</li>
+                  <li class="mod-offcanvas-header uk-nav-header uk-text-bold">Follow Links</li><!-- ratio: 1.2; default is 1 -->
+<nav class="uk-navbar-container uk-navbar-transparent uk-margin-remove-vertical uk-padding-remove-vertical" uk-navbar>
+  <div class="uk-navbar-left uk-margin-remove uk-padding-remove uk-link-muted">
+    <a href="https://github.com/krzyzanowskim" uk-icon="icon: github; ratio:1;" class="mod-offcanvas-icon uk-margin-small-left" title="Github" uk-tooltip></a>
+    
+    <a href="https://twitter.com/krzyzanowskim" uk-icon="icon: twitter; ratio:1;" class="mod-offcanvas-icon uk-margin-small-left" title="Twitter" uk-tooltip></a>
+    
+    <a href="mailto:marcin@krzyzanowskim.com" uk-icon="icon: mail; ratio:1;" class="mod-offcanvas-icon uk-margin-small-left" title="email" uk-tooltip></a>
+    
+    <a href="https://linkedin.com/in/marcinkrzyzanowski" uk-icon="icon: linkedin; ratio:1;" class="mod-offcanvas-icon uk-margin-small-left" title="Linkedin" uk-tooltip></a>
+    
+    <a href="https://www.instagram.com/marcinkrzyzanowski" uk-icon="icon: instagram; ratio:1;" class="mod-offcanvas-icon uk-margin-small-left" title="Instagram" uk-tooltip></a>
+    
+    <a href="" uk-icon="icon: rss; ratio:1;" class="mod-offcanvas-icon uk-margin-small-left" title="RSS" uk-tooltip></a>
+    
+  </div>
+</nav>
+          </ul>
+        </div>
+      </li>  
+      <li>
+        <ul class="mod-offcanvas-toc uk-nav-default uk-nav-parent-icon" uk-nav></ul>
+      </li>
+      <li>
+        <div class="mod-offcanvas-header uk-text-bold uk-nav-header">description</div>
+        <div class="mod-offcanvas-text uk-text-muted">
+          <p class="mod-offcanvas-paragraph uk-text-bold">It's Another Jekyll Template.</p>
+        </div>
+        <div class="mod-offcanvas-header uk-text-bold uk-nav-header">license</div>
+        <div class="mod-offcanvas-text uk-text-muted">
+          <p class="mod-offcanvas-paragraph uk-text-bold">All the custom work and posts on this site falls under <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>.</p>
+        </div>
+        <div class="mod-offcanvas-header uk-text-bold uk-nav-header">attribution</div>
+        <div class="mod-offcanvas-text uk-text-muted">
+          <p class="mod-offcanvas-paragraph uk-text-bold">Powered by <a href="https://jekyllrb.com" target="_blank">Jekyll</a>, <a href="https://getuikit.com" target="_blank">UIKit 3</a>, <a href="https://arendjr.github.io/selectivity/" target="_blank">Selectivity.js</a>, <a href="https://jquery.com" target="_blank">jQuery</a>, <a href="https://www.mathjax.org" target="_blank">MathJax</a>, <a href="http://sass-lang.com" target="_blank">Sass</a>, and <a href="https://google-webfonts-helper.herokuapp.com/fonts" target="_blank">google-webfonts-helper</a>.</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+  <script src="/assets/js/mod-layout.js"></script>
+  <audio id="marcinkrzyżanowski-player" src="/assets/audio/marcinkrzyżanowski.mp3"></audio>
+
+<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-111669687-1', 'auto');
+		ga('send', 'pageview');
+		ga('set', 'userId', 'USER_ID');
+	</script>
+  </body>
+</html>
