@@ -536,10 +536,10 @@ extension Blowfish: Cipher {
     }
 }
 
-class BlowFishEncryptor: NSObject {
+public final class BlowFishEncryptor: NSObject {
     var key : String!
     override init() {
-        super.init()
+        super.init() 
     }
     
     func blowfish(key:String!) -> BlowFishEncryptor {
