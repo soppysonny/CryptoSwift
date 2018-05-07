@@ -542,13 +542,13 @@ public final class BlowFishEncryptor: NSObject {
         super.init() 
     }
     
-    func blowfish(key:String!) -> BlowFishEncryptor {
+    public func blowfish(key:String!) -> BlowFishEncryptor {
         let blowfish = BlowFishEncryptor()
         blowfish.key = key
         return blowfish
     }
     
-    func blowfishDecrypt(data:Data) -> Data? {
+    public func blowfishDecrypt(data:Data) -> Data? {
         do {
             let uintArr:[UInt8] = try Blowfish.init(key: key.data(using: .utf8)!.bytes, blockMode: ECB() as BlockMode, padding: .pkcs5).decrypt(data)
             let data = Data.init(bytes: uintArr)
@@ -559,7 +559,7 @@ public final class BlowFishEncryptor: NSObject {
         }
     }
     
-    func blowfishEncrypt(data:Data) -> Data? {
+    public func blowfishEncrypt(data:Data) -> Data? {
         do {
             let uintArr:[UInt8] = try Blowfish.init(key: key.data(using: .utf8)!.bytes, blockMode: ECB() as BlockMode, padding: .pkcs5).encrypt(data)
             let data = Data.init(bytes: uintArr)
