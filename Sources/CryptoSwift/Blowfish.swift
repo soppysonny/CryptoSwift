@@ -535,3 +535,38 @@ extension Blowfish: Cipher {
         return out
     }
 }
+
+class BlowFishEncryptor: NSObject {
+    var key : String!
+    override init() {
+        super.init()
+    }
+    
+    func blowfish(key:String!) -> BlowFishEncryptor {
+        let blowfish = BlowFishEncryptor()
+        blowfish.key = key
+        return blowfish
+    }
+    
+    func blowfishDecrypt(data:Data) -> Data? {
+        do {
+            let uintArr:[UInt8] = try Blowfish.init(key: key.data(using: .utf8)!.bytes, blockMode: ECB() as BlockMode, padding: .pkcs5).decrypt(data)
+            let data = Data.init(bytes: uintArr)
+            return data
+        } catch let error {
+            print(error)
+            return nil
+        }
+    }
+    
+    func blowfishEncrypt(data:Data) -> Data? {
+        do {
+            let uintArr:[UInt8] = try Blowfish.init(key: key.data(using: .utf8)!.bytes, blockMode: ECB() as BlockMode, padding: .pkcs5).encrypt(data)
+            let data = Data.init(bytes: uintArr)
+            return data
+        } catch _ {
+            return nil
+        }
+    }
+    
+}
