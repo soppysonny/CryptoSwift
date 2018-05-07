@@ -9,11 +9,11 @@
 import Foundation
 public class BlowfishTool: NSObject {
     var key : String!
-    override init() {
+    public override init() {
         super.init()
     }
     
-    func getBlowfish(key:String!) -> BlowfishTool {
+    public func getBlowfish(key:String!) -> BlowfishTool {
         let tool = BlowfishTool()
         tool.key = key
         return tool
